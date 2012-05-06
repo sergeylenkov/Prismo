@@ -1,0 +1,20 @@
+CREATE TABLE accounts (id INTEGER PRIMARY KEY, apple_id, application_id);
+CREATE TABLE reviews (id INTEGER PRIMARY KEY, apple_id, version, store, name, title, review, rate INTEGER, date DATETIME);
+CREATE TABLE rank_stores (id INTEGER PRIMARY KEY, application_id, store_id, enable INTEGER);
+CREATE TABLE rank_categories (id INTEGER PRIMARY KEY, application_id, category_id, enable INTEGER);
+CREATE TABLE stores (apple_id, name);
+CREATE TABLE categories (id INTEGER PRIMARY KEY, name, apple_id);
+CREATE TABLE subcategories (id INTEGER PRIMARY KEY, name, apple_id);
+CREATE TABLE ranks (id INTEGER PRIMARY KEY, apple_id, store_id, category_id, rank, date);
+CREATE TABLE currencies (id INTEGER PRIMARY KEY, currency_code, tier_currency_code);
+CREATE TABLE tiers (id INTEGER PRIMARY KEY, tier, currency_code, price REAL, royalty REAL, royalty_in_usd REAL);
+
+CREATE INDEX application_name_sales_index ON sales (application_name);
+CREATE INDEX apple_id_sales_index ON sales (apple_id);	
+CREATE INDEX country_code_sales_index ON sales (country_code);	
+CREATE INDEX currency_code_sales_index ON sales (currency_code);
+CREATE INDEX type_id_sales_index ON sales (type_id);
+CREATE INDEX date_sales_index ON sales (date);
+CREATE INDEX royalty_sales_index ON sales (royalty);
+CREATE INDEX currency_code_tiers_index ON tiers (currency_code);
+CREATE INDEX royalty_tiers_index ON tiers (royalty);
