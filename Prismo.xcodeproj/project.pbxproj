@@ -28,7 +28,6 @@
 		A53A294215558AA100334AC7 /* Yuba.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A53A294015558A9100334AC7 /* Yuba.framework */; };
 		A53B06AA1393D87F0063036D /* PSTopsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06A91393D87F0063036D /* PSTopsController.m */; };
 		A53B06AD1393D9F70063036D /* PSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06AC1393D9F70063036D /* PSTop.m */; };
-		A53B06B01393DB190063036D /* PSData.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06AF1393DB190063036D /* PSData.m */; };
 		A53B06B21393E8AF0063036D /* Database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A53B06B11393E8AF0063036D /* Database.sqlite */; };
 		A53B06B51393F7800063036D /* PSPop.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06B41393F77F0063036D /* PSPop.m */; };
 		A53B06CA1394223C0063036D /* Download.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B06C61394223C0063036D /* Download.png */; };
@@ -43,6 +42,7 @@
 		A54E459E155674DD00C7A79C /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A54E4599155674DD00C7A79C /* GTMNSString+HTML.m */; };
 		A54E459F155674DD00C7A79C /* NSData+GZip.m in Sources */ = {isa = PBXBuildFile; fileRef = A54E459B155674DD00C7A79C /* NSData+GZip.m */; };
 		A54E45A0155674DD00C7A79C /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A54E459D155674DD00C7A79C /* NSString+HTML.m */; };
+		A54E45A715567A7800C7A79C /* PSData.m in Sources */ = {isa = PBXBuildFile; fileRef = A54E45A615567A7800C7A79C /* PSData.m */; };
 		A56843B8145C2FB7000BD2EE /* PSFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56843B7145C2FB6000BD2EE /* PSFilterController.m */; };
 		A56843BD145C6E7C000BD2EE /* PSDashboardFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56843BC145C6E7B000BD2EE /* PSDashboardFilterController.m */; };
 		A56843CA145D302B000BD2EE /* PSMapFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56843C9145D3028000BD2EE /* PSMapFilterController.m */; };
@@ -467,8 +467,6 @@
 		A53B06A91393D87F0063036D /* PSTopsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTopsController.m; sourceTree = "<group>"; };
 		A53B06AB1393D9F70063036D /* PSTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTop.h; sourceTree = "<group>"; };
 		A53B06AC1393D9F70063036D /* PSTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTop.m; sourceTree = "<group>"; };
-		A53B06AE1393DB190063036D /* PSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSData.h; path = Classes/PSData.h; sourceTree = SOURCE_ROOT; };
-		A53B06AF1393DB190063036D /* PSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSData.m; path = Classes/PSData.m; sourceTree = SOURCE_ROOT; };
 		A53B06B11393E8AF0063036D /* Database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Database.sqlite; path = Resources/Database.sqlite; sourceTree = "<group>"; };
 		A53B06B31393F77D0063036D /* PSPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPop.h; sourceTree = "<group>"; };
 		A53B06B41393F77F0063036D /* PSPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPop.m; sourceTree = "<group>"; };
@@ -494,6 +492,8 @@
 		A54E459B155674DD00C7A79C /* NSData+GZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZip.m"; path = "Classes/Utilites/NSData+GZip.m"; sourceTree = "<group>"; };
 		A54E459C155674DD00C7A79C /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "Classes/Utilites/NSString+HTML.h"; sourceTree = "<group>"; };
 		A54E459D155674DD00C7A79C /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "Classes/Utilites/NSString+HTML.m"; sourceTree = "<group>"; };
+		A54E45A515567A7800C7A79C /* PSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSData.h; sourceTree = "<group>"; };
+		A54E45A615567A7800C7A79C /* PSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSData.m; sourceTree = "<group>"; };
 		A56843B6145C2FB6000BD2EE /* PSFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFilterController.h; sourceTree = "<group>"; };
 		A56843B7145C2FB6000BD2EE /* PSFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFilterController.m; sourceTree = "<group>"; };
 		A56843BB145C6E7A000BD2EE /* PSDashboardFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDashboardFilterController.h; sourceTree = "<group>"; };
@@ -1175,8 +1175,8 @@
 		A574E28E11DDB5FA00B13880 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				A53B06AE1393DB190063036D /* PSData.h */,
-				A53B06AF1393DB190063036D /* PSData.m */,
+				A54E45A515567A7800C7A79C /* PSData.h */,
+				A54E45A615567A7800C7A79C /* PSData.m */,
 				A5B2905113ED2D8900803AFB /* PSSettings.h */,
 				A5B2905213ED2D8900803AFB /* PSSettings.m */,
 				A5144A5A1526D4AB00406A47 /* PSUtilites.h */,
@@ -2091,7 +2091,6 @@
 				A5129C7A13504DC3006DD9C4 /* PSRatingParser.m in Sources */,
 				A53B06AA1393D87F0063036D /* PSTopsController.m in Sources */,
 				A53B06AD1393D9F70063036D /* PSTop.m in Sources */,
-				A53B06B01393DB190063036D /* PSData.m in Sources */,
 				A53B06B51393F7800063036D /* PSPop.m in Sources */,
 				A5885CF4139A51DE00ECA141 /* PSOutlineItem.m in Sources */,
 				A5723FE513A4E78600E2AAE5 /* PSDataController.m in Sources */,
@@ -2127,6 +2126,7 @@
 				A54E459E155674DD00C7A79C /* GTMNSString+HTML.m in Sources */,
 				A54E459F155674DD00C7A79C /* NSData+GZip.m in Sources */,
 				A54E45A0155674DD00C7A79C /* NSString+HTML.m in Sources */,
+				A54E45A715567A7800C7A79C /* PSData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
