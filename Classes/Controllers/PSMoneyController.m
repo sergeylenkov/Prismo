@@ -75,9 +75,15 @@
     
     [series removeAllObjects];
     [values removeAllObjects];
+    
+    NSMutableArray *allSales;
 
-    NSMutableArray *allSales = [[NSMutableArray alloc] initWithArray:[data salesFromDate:filterController.fromDate toDate:filterController.toDate]];
-
+    if (filterController.application) {
+        allSales = [[NSMutableArray alloc] initWithArray:[data salesFromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application]];
+    } else {
+        allSales = [[NSMutableArray alloc] initWithArray:[data salesFromDate:filterController.fromDate toDate:filterController.toDate]];
+    }
+    
 	if (filterController.groupBy == PSGraphGroupByDay) {
 		for (PSSale *sale in allSales) {
             if ([sale.date year] == [[NSDate date] year]) {
@@ -131,13 +137,13 @@
                     if (filterController.groupBy == PSGraphGroupByWeek) {
                         if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                             if ([startDate month] == [endDate month]) {
-                                [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
+                                [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
                             } else {
                                 [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]]];
                             }
                         } else {
                             if ([startDate month] == [endDate month]) {
-                                [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
+                                [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
                             } else {
                                 [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]]];
                             }
@@ -156,13 +162,13 @@
                 if (filterController.groupBy == PSGraphGroupByWeek) {
                     if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                         if ([startDate month] == [endDate month]) {
-                            [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
+                            [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
                         } else {
                             [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]]];
                         }
                     } else {
                         if ([startDate month] == [endDate month]) {
-                            [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
+                            [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
                         } else {
                             [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]]];
                         }
@@ -188,8 +194,14 @@
     
     [self draw];
     
-    NSDictionary *dict = [data revenueByCurrenciesFromDate:filterController.fromDate toDate:filterController.toDate];
+    NSDictionary *dict;
 
+    if (filterController.application) {
+        dict = [data revenueByCurrenciesFromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+    } else {
+        dict = [data revenueByCurrenciesFromDate:filterController.fromDate toDate:filterController.toDate];
+    }
+    
     if ([dict objectForKey:@"USD"] == nil) {
 		[USDField setStringValue:[NSString stringWithFormat:@"$%@", [formatter stringFromNumber:[NSNumber numberWithInt:0]]]];
 	} else {
@@ -226,17 +238,38 @@
 		[AUDField setStringValue:[NSString stringWithFormat:@"$%@", [formatter stringFromNumber:[dict objectForKey:@"AUD"]]]];
 	}
     	
-	NSNumber *revenueUS = [data revenueForRegion:@"AMERICAS" fromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueEU = [data revenueForRegion:@"EUROPE" fromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueCA = [data revenueForRegion:@"CA" fromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueAU = [data revenueForRegion:@"AU" fromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueGB = [data revenueForRegion:@"GB" fromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueJP = [data revenueForRegion:@"JP" fromDate:filterController.fromDate toDate:filterController.toDate];
+	NSNumber *revenueUS = [NSNumber numberWithInt:0];
+	NSNumber *revenueEU = [NSNumber numberWithInt:0];
+	NSNumber *revenueCA = [NSNumber numberWithInt:0];
+	NSNumber *revenueAU = [NSNumber numberWithInt:0];
+	NSNumber *revenueGB = [NSNumber numberWithInt:0];
+	NSNumber *revenueJP = [NSNumber numberWithInt:0];
 	
-	NSNumber *revenueTotal = [data revenueFromDate:filterController.fromDate toDate:filterController.toDate];
-	NSNumber *revenueWW = [NSNumber numberWithFloat:[revenueTotal floatValue] - [revenueUS floatValue] - [revenueEU floatValue] - [revenueCA floatValue] -
-												    [revenueAU floatValue] - [revenueGB floatValue] - [revenueJP floatValue]];
+	NSNumber *revenueTotal = [NSNumber numberWithInt:0];
 	
+    if (filterController.application) {
+        revenueUS = [data revenueForRegion:@"AMERICAS" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        revenueEU = [data revenueForRegion:@"EUROPE" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        revenueCA = [data revenueForRegion:@"CA" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        revenueAU = [data revenueForRegion:@"AU" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        revenueGB = [data revenueForRegion:@"GB" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        revenueJP = [data revenueForRegion:@"JP" fromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+        
+        revenueTotal = [data revenueFromDate:filterController.fromDate toDate:filterController.toDate application:filterController.application];
+    } else {
+        revenueUS = [data revenueForRegion:@"AMERICAS" fromDate:filterController.fromDate toDate:filterController.toDate];
+        revenueEU = [data revenueForRegion:@"EUROPE" fromDate:filterController.fromDate toDate:filterController.toDate];
+        revenueCA = [data revenueForRegion:@"CA" fromDate:filterController.fromDate toDate:filterController.toDate];
+        revenueAU = [data revenueForRegion:@"AU" fromDate:filterController.fromDate toDate:filterController.toDate];
+        revenueGB = [data revenueForRegion:@"GB" fromDate:filterController.fromDate toDate:filterController.toDate];
+        revenueJP = [data revenueForRegion:@"JP" fromDate:filterController.fromDate toDate:filterController.toDate];
+        
+        revenueTotal = [data revenueFromDate:filterController.fromDate toDate:filterController.toDate];
+    }
+    
+    NSNumber *revenueWW = [NSNumber numberWithFloat:[revenueTotal floatValue] - [revenueUS floatValue] - [revenueEU floatValue] - [revenueCA floatValue] -
+                                                    [revenueAU floatValue] - [revenueGB floatValue] - [revenueJP floatValue]];
+                           
 	NSString *currency = data.currencySymbol;
 
 	[USField setStringValue:[NSString stringWithFormat:@"%@%@", currency, [formatter stringFromNumber:revenueUS]]];

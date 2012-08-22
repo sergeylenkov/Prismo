@@ -12,14 +12,17 @@
     IBOutlet NSDatePicker *fromDateButton;
     IBOutlet NSDatePicker *toDateButton;
     IBOutlet NSPopUpButton *byButton;
+    IBOutlet NSPopUpButton *appButton;
     NSDate *fromDate;
     NSDate *toDate;
     PSGraphGroupBy groupBy;
+    PSApplication *application;
 }
 
 @property (nonatomic, retain) NSDate *fromDate;
 @property (nonatomic, retain) NSDate *toDate;
 @property (nonatomic, assign) PSGraphGroupBy groupBy;
+@property (nonatomic, retain) PSApplication *application;
 
 - (IBAction)changeDate:(id)sender;
 - (IBAction)changeBy:(id)sender;

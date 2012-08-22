@@ -13,10 +13,12 @@
 @synthesize fromDate;
 @synthesize toDate;
 @synthesize groupBy;
+@synthesize application;
 
 - (void)dealloc {
     [fromDate release];
     [toDate release];
+    [application release];
     [super dealloc];
 }
 
@@ -47,6 +49,30 @@
 	}
     
     groupBy = byButton.indexOfSelectedItem;
+    
+    [appButton removeAllItems];
+    [appButton addItemWithTitle:@"All"];
+    
+    for (PSApplication *app in data.applications) {
+        [appButton addItemWithTitle:app.name];
+    }
+    
+    if ([PSSettings filterValueForKey:@"Money App"] == nil) {
+		[appButton selectItem:[appButton itemAtIndex:0]];
+	} else {
+        NSInteger identifier = [[PSSettings filterValueForKey:@"Money App"] intValue];
+        NSInteger index = 1;
+        
+        for (PSApplication *app in data.applications) {
+            if (identifier == app.identifier) {
+                [appButton selectItem:[appButton itemAtIndex:index]];
+                self.application = app;
+                break;
+            }
+            
+            index++;
+        }
+	}
 }
 
 - (IBAction)changeDate:(id)sender {
@@ -61,7 +87,21 @@
 - (IBAction)changeBy:(id)sender {
     groupBy = byButton.indexOfSelectedItem;
     
-	[PSSettings setFilterValue:[NSNumber numberWithInt:groupBy] forKey:@"Money Graph By"];	
+	[PSSettings setFilterValue:[NSNumber numberWithInt:groupBy] forKey:@"Money Graph By"];
+	[self filterDidChanged];
+}
+
+- (IBAction)changeApp:(id)sender {
+    if (appButton.indexOfSelectedItem == 0) {
+        self.application = nil;
+        [PSSettings removeFilterValueForKey:@"Money App"];
+    } else {
+        PSData *data = [PSData sharedData];
+        self.application = [data.applications objectAtIndex:appButton.indexOfSelectedItem - 1];
+        
+        [PSSettings setFilterValue:[NSNumber numberWithInt:application.identifier] forKey:@"Money App"];
+    }
+    
 	[self filterDidChanged];
 }
 

@@ -47,7 +47,7 @@
     NSMutableArray *categories = [[NSMutableArray alloc] init];
     
     for (PSCategory *category in data.categories) {
-         if ([[selectedCategories objectForKey:[NSString stringWithFormat:@"%d", category.identifier]] boolValue]) {
+         if ([[selectedCategories objectForKey:[NSString stringWithFormat:@"%ld", category.identifier]] boolValue]) {
              [categories addObject:category];
          }
     }
@@ -56,7 +56,7 @@
     NSMutableArray *stores = [[NSMutableArray alloc] init];
     
     for (PSStore *store in data.stores) {
-        if ([[selectedStores objectForKey:[NSString stringWithFormat:@"%d", store.identifier]] boolValue]) {
+        if ([[selectedStores objectForKey:[NSString stringWithFormat:@"%ld", store.identifier]] boolValue]) {
             [stores addObject:store];
         }
     }
@@ -111,7 +111,7 @@
             
             NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?id=%d&genreId=%d&popId=%d", top.category.identifier, top.category.genre, top.pop.identifier]];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?id=%ld&genreId=%ld&popId=%ld", top.category.identifier, top.category.genre, top.pop.identifier]];
         
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
         
@@ -120,10 +120,10 @@
         
             if (top.category.type == 0 || top.category.type == 1) {
                 [request addRequestHeader:@"User-Agent" value:@"iTunes/10.1.2 (Macintosh; Intel Mac OS X 10.6.6) AppleWebKit/533.19.4"];
-                [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%d,12", top.store.identifier]];
+                [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,12", top.store.identifier]];
             } else {
                 [request addRequestHeader:@"User-Agent" value:@"MacAppStore/1.0 (Macintosh; U; Intel Mac OS X 10.6.6; en) AppleWebKit/533.19.4"];
-                [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%d,13", top.store.identifier]];
+                [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,13", top.store.identifier]];
             }
         
             [request addRequestHeader:@"X-Apple-Partner" value:@"origin.0"];
@@ -162,7 +162,7 @@
                 }
             
                 for (PSApplication *application in data.applications) {
-                    if ([item isMatchedByRegex:[NSString stringWithFormat:@"adam-id=\"%d\"", application.identifier]]) {
+                    if ([item isMatchedByRegex:[NSString stringWithFormat:@"adam-id=\"%ld\"", application.identifier]]) {
                         NSString *place = [item stringByMatching:@"<span class=\"index\">.*?([0-9]+).*</span>" capture:1];
                     
                         if (place != nil) {

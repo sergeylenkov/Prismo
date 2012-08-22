@@ -15,5 +15,6 @@
 
 + (void)setFilterValue:(id)value forKey:(NSString *)key;
 + (id)filterValueForKey:(NSString *)key;
++ (void)removeFilterValueForKey:(NSString *)key;
 
 @end

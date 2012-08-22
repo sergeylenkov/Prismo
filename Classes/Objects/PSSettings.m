@@ -23,4 +23,12 @@
     return [dict objectForKey:key];
 }
 
++ (void)removeFilterValueForKey:(NSString *)key {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"Filters"]];
+    [dict removeObjectForKey:key];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"Filters"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

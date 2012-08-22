@@ -192,7 +192,7 @@
     int count = 0;
 
     if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         sqlite3_bind_text(statement, 2, [account UTF8String], -1, SQLITE_TRANSIENT);
         
         if (sqlite3_step(statement) == SQLITE_ROW) {				
@@ -300,8 +300,8 @@
 		NSString *appleID = [ids objectAtIndex:i];
 
 		if (sqlite3_prepare_v2(_db, [deleteSQL UTF8String], -1, &deleteStatement, NULL) == SQLITE_OK) {
-            sqlite3_bind_text(deleteStatement, 1, [[startDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(deleteStatement, 2, [[endDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(deleteStatement, 1, [[startDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(deleteStatement, 2, [[endDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(deleteStatement, 3, [appleID UTF8String], -1, SQLITE_TRANSIENT);
 			
 			sqlite3_step(deleteStatement);
@@ -330,7 +330,7 @@
             [dict setObject:[fields objectAtIndex:12] forKey:@"country_code"];
             [dict setObject:[fields objectAtIndex:15] forKey:@"price"];
             [dict setObject:[fields objectAtIndex:8] forKey:@"royalty"];
-            [dict setObject:[startDate dbDateFormat] forKey:@"date"];
+            [dict setObject:[startDate dbDateRepresentation] forKey:@"date"];
             
             currency = [fields objectAtIndex:11];
             royalty = [NSNumber numberWithDouble:[[fields objectAtIndex:8] doubleValue]];
@@ -345,7 +345,7 @@
             [dict setObject:[fields objectAtIndex:14] forKey:@"country_code"];
             [dict setObject:[fields objectAtIndex:20] forKey:@"price"];
             [dict setObject:[fields objectAtIndex:10] forKey:@"royalty"];
-            [dict setObject:[startDate dbDateFormat] forKey:@"date"];
+            [dict setObject:[startDate dbDateRepresentation] forKey:@"date"];
             
             currency = [fields objectAtIndex:13];
             royalty = [NSNumber numberWithDouble:[[fields objectAtIndex:10] doubleValue]];
@@ -449,11 +449,11 @@
 - (NSDictionary *)tiersFroCurrency:(NSString *)currency royalty:(NSNumber *)royalty date:(NSDate *)date {
     int version = 1;
     
-    if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateFormat]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2011-07-20 00:00:00"] timeIntervalSince1970]) {
+    if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateRepresentation]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2011-07-20 00:00:00"] timeIntervalSince1970]) {
         version = 2;
     }
     
-    if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateFormat]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2012-03-01 00:00:00"] timeIntervalSince1970]) {
+    if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateRepresentation]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2012-03-01 00:00:00"] timeIntervalSince1970]) {
         version = 3;
     }
     

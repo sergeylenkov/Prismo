@@ -63,10 +63,10 @@
         filterButton.enabled = YES;
     }
     
-    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Ranks View Index", application.identifier]] == nil) {
+    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Ranks View Index", application.identifier]] == nil) {
         [changeViewButton setSelectedSegment:0];
     } else {
-        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Ranks View Index", application.identifier]] intValue];
+        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Ranks View Index", application.identifier]] intValue];
         [changeViewButton setSelectedSegment:index];
     }
     
@@ -135,7 +135,7 @@
 			change = previous.place - rank.place;
 		}
 		
-		NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%d\"\n", [rank.date dbDateFormat], rank.place, change];
+		NSString *line = [NSString stringWithFormat:@"\"%@\",\"%ld\",\"%d\"\n", [rank.date dbDateRepresentation], rank.place, change];
 		csv = [csv stringByAppendingString:line];
 	}
 	
@@ -200,7 +200,7 @@
         printableView = detailsController.view;
 	}
 	
-	[PSSettings setFilterValue:[NSNumber numberWithInt:changeViewButton.selectedSegment] forKey:[NSString stringWithFormat:@"%d Ranks View Index", application.identifier]];
+	[PSSettings setFilterValue:[NSNumber numberWithInt:changeViewButton.selectedSegment] forKey:[NSString stringWithFormat:@"%ld Ranks View Index", application.identifier]];
 }
 
 @end

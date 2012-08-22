@@ -96,7 +96,7 @@
     [applications removeAllObjects];
 
     for (PSCompare *compare in filterController.applications) {
-        NSString *key = [NSString stringWithFormat:@"%d_%d", compare.application.identifier, compare.type];
+        NSString *key = [NSString stringWithFormat:@"%ld_%ld", compare.application.identifier, compare.type];
 
         if ([filterController.selection objectForKey:key]) {
             [applications addObject:compare];
@@ -235,13 +235,13 @@
                             if (filterController.groupBy == PSGraphGroupByWeek) {
                                 if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                                     if ([startDate month] == [endDate month]) {
-                                        [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
+                                        [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
                                     } else {
                                         [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]]];
                                     }
                                 } else {
                                     if ([startDate month] == [endDate month]) {
-                                        [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
+                                        [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
                                     } else {
                                         [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]]];
                                     }
@@ -285,13 +285,13 @@
                         if (filterController.groupBy == PSGraphGroupByWeek) {
                             if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                                 if ([startDate month] == [endDate month]) {
-                                    [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
+                                    [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]]];
                                 } else {
                                     [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]]];
                                 }
                             } else {
                                 if ([startDate month] == [endDate month]) {
-                                    [series addObject:[NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
+                                    [series addObject:[NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]]];
                                 } else {
                                     [series addObject:[NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]]];
                                 }

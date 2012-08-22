@@ -68,7 +68,7 @@
             sqlite3_bind_int(statement, 3, application.identifier);
             sqlite3_bind_int(statement, 4, pop.identifier);
             sqlite3_bind_int(statement, 5, place);
-            sqlite3_bind_text(statement, 6, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 6, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
             
             sqlite3_step(statement);										
         }

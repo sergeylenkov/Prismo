@@ -96,7 +96,7 @@
 	}
 	
 	if ([[tableColumn identifier] isEqualToString:@"rating"]) {
-		return [NSImage imageNamed:[NSString stringWithFormat:@"Stars%d", review.rating]];
+		return [NSImage imageNamed:[NSString stringWithFormat:@"Stars%ld", review.rating]];
 	}
     
 	return @"";

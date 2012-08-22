@@ -75,8 +75,11 @@
 - (NSArray *)salesByCountriesFromDate:(NSDate *)from toDate:(NSDate *)to;
 - (NSArray *)salesByCountriesFromDate:(NSDate *)from toDate:(NSDate *)to application:(PSApplication *)application;
 - (NSDictionary *)revenueByCurrenciesFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+- (NSDictionary *)revenueByCurrenciesFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application;
 - (NSNumber *)revenueForRegion:(NSString *)region fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+- (NSNumber *)revenueForRegion:(NSString *)region fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application;
 - (NSNumber *)revenueFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+- (NSNumber *)revenueFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application;
 - (NSDate *)minDateForTop:(PSTop *)top application:(PSApplication *)application;
 - (NSDate *)maxDateForTop:(PSTop *)top application:(PSApplication *)application;
 - (NSDate *)minSaleDate;

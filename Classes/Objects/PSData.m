@@ -293,8 +293,8 @@ static PSData *sharedInstance = nil;
     sqlite3_stmt *statement;
     
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			PSSale *sale = [[PSSale alloc] init];
@@ -329,11 +329,10 @@ static PSData *sharedInstance = nil;
                                                    FROM sales WHERE apple_id = ? AND (date >= ? AND date <= ?) GROUP BY date ORDER BY date", self.currencyColumn];
     sqlite3_stmt *statement;
     
-    
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 3, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 3, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			PSSale *sale = [[PSSale alloc] init];
@@ -365,16 +364,16 @@ static PSData *sharedInstance = nil;
     float revenue = 0.0;
     
     NSString *sql = [NSString stringWithFormat:@"SELECT SUM(ABS(units)) AS total, \
-                     SUM(units * %@) AS royalty, \
-                     SUM(CASE WHEN type_id IN ('7', '7T', '7F', 'F7') THEN units ELSE 0 END) AS updates, \
-                     SUM(CASE WHEN units < 0 THEN ABS(units) ELSE 0 END) AS refunds, \
-                     SUM(CASE WHEN (type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1', 'FI1') AND royalty > 0.0 AND units > 0) THEN units ELSE 0 END) AS sales \
-                     FROM sales WHERE date = ?", self.currencyColumn];
+                                                        SUM(units * %@) AS royalty, \
+                                                        SUM(CASE WHEN type_id IN ('7', '7T', '7F', 'F7') THEN units ELSE 0 END) AS updates, \
+                                                        SUM(CASE WHEN units < 0 THEN ABS(units) ELSE 0 END) AS refunds, \
+                                                        SUM(CASE WHEN (type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1', 'FI1') AND royalty > 0.0 AND units > 0) THEN units ELSE 0 END) AS sales \
+                                                   FROM sales WHERE date = ?", self.currencyColumn];
     sqlite3_stmt *statement;
     
     
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			total = sqlite3_column_int(statement, 0);
@@ -419,8 +418,8 @@ static PSData *sharedInstance = nil;
     
     
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			total = sqlite3_column_int(statement, 0);
@@ -465,9 +464,9 @@ static PSData *sharedInstance = nil;
     
     
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 3, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 3, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			total = sqlite3_column_int(statement, 0);
@@ -511,7 +510,7 @@ static PSData *sharedInstance = nil;
     
     
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW) {
             total = sqlite3_column_int(statement, 0);
@@ -592,8 +591,8 @@ static PSData *sharedInstance = nil;
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             PSCountrySale *sale = [[PSCountrySale alloc] init];
@@ -629,9 +628,9 @@ static PSData *sharedInstance = nil;
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 3, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 3, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             PSCountrySale *sale = [[PSCountrySale alloc] init];
@@ -664,8 +663,38 @@ static PSData *sharedInstance = nil;
 	NSMutableArray *keys = [[NSMutableArray alloc] init];
 	
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-		sqlite3_bind_text(statement, 1, [[fromDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-		sqlite3_bind_text(statement, 2, [[toDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 1, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 2, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+		
+		while (sqlite3_step(statement) == SQLITE_ROW) {
+			[keys addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)]];
+			[objects addObject:[NSNumber numberWithDouble:sqlite3_column_double(statement, 1)]];
+		}
+	}
+	
+	sqlite3_finalize(statement);
+	
+	NSDictionary *dict = [[[NSDictionary alloc] initWithObjects:objects forKeys:keys] autorelease];
+	
+	[objects release];
+	[keys release];
+	
+	return dict;
+}
+
+- (NSDictionary *)revenueByCurrenciesFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application {
+	NSString *sql = @"SELECT c.tier_currency_code, TOTAL(s.units * s.royalty) FROM currencies c, sales s \
+                       WHERE s.apple_id = ? AND (s.date >= ? AND s.date <= ?) AND c.currency_code = s.currency_code AND c.version = 2 AND s.type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1') \
+                    GROUP BY c.tier_currency_code ORDER BY c.tier_currency_code";
+	sqlite3_stmt *statement;
+	
+	NSMutableArray *objects = [[NSMutableArray alloc] init];
+	NSMutableArray *keys = [[NSMutableArray alloc] init];
+	
+	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 2, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 3, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
 		
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			[keys addObject:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)]];
@@ -687,12 +716,12 @@ static PSData *sharedInstance = nil;
 	float amount = 0.0;
 	
 	if ([region isEqualToString:@"EUROPE"]) {
-		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code IN (%@) AND date >= ? AND date <= ? AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _euroZoneCodes];
+		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code IN (%@) AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _euroZoneCodes];
 		sqlite3_stmt *statement;
 
 		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-			sqlite3_bind_text(statement, 1, [[fromDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(statement, 2, [[toDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 1, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 2, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
 			
 			if (sqlite3_step(statement) == SQLITE_ROW) {
 				amount = sqlite3_column_double(statement, 0);
@@ -701,12 +730,12 @@ static PSData *sharedInstance = nil;
 		
 		sqlite3_finalize(statement);
 	} else if ([region isEqualToString:@"AMERICAS"]) {
-        NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code IN (%@) AND date >= ? AND date <= ? AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _americasCodes];
+        NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code IN (%@) AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _americasCodes];
 		sqlite3_stmt *statement;
 
 		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-			sqlite3_bind_text(statement, 1, [[fromDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(statement, 2, [[toDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 1, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 2, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
 			
 			if (sqlite3_step(statement) == SQLITE_ROW) {
 				amount = sqlite3_column_double(statement, 0);
@@ -715,13 +744,67 @@ static PSData *sharedInstance = nil;
 		
 		sqlite3_finalize(statement);
     } else {
-		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code = ? AND date >= ? AND date <= ? AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
+		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE country_code = ? AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
 		sqlite3_stmt *statement;
 		
 		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
 			sqlite3_bind_text(statement, 1, [region UTF8String], -1, SQLITE_TRANSIENT);
-			sqlite3_bind_text(statement, 2, [[fromDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_text(statement, 3, [[toDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 2, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 3, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+			
+			if (sqlite3_step(statement) == SQLITE_ROW) {
+				amount = sqlite3_column_double(statement, 0);
+			}
+		}
+		
+		sqlite3_finalize(statement);
+	}
+    
+	return [NSNumber numberWithFloat:amount];
+}
+
+- (NSNumber *)revenueForRegion:(NSString *)region fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application {
+	float amount = 0.0;
+	
+	if ([region isEqualToString:@"EUROPE"]) {
+		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE apple_id = ? AND country_code IN (%@) AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _euroZoneCodes];
+		sqlite3_stmt *statement;
+        
+		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+            sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 2, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 3, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+			
+			if (sqlite3_step(statement) == SQLITE_ROW) {
+				amount = sqlite3_column_double(statement, 0);
+			}
+		}
+		
+		sqlite3_finalize(statement);
+	} else if ([region isEqualToString:@"AMERICAS"]) {
+        NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE apple_id = ? AND country_code IN (%@) AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn, _americasCodes];
+		sqlite3_stmt *statement;
+        
+		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+            sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 2, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 3, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+			
+			if (sqlite3_step(statement) == SQLITE_ROW) {
+				amount = sqlite3_column_double(statement, 0);
+			}
+		}
+		
+		sqlite3_finalize(statement);
+    } else {
+		NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE apple_id = ? AND country_code = ? AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
+		sqlite3_stmt *statement;
+		
+		if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+            sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 2, [region UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(statement, 3, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 4, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
 			
 			if (sqlite3_step(statement) == SQLITE_ROW) {
 				amount = sqlite3_column_double(statement, 0);
@@ -735,13 +818,33 @@ static PSData *sharedInstance = nil;
 }
 
 - (NSNumber *)revenueFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
-	NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE date >= ? AND date <= ? AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
+	NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
 	sqlite3_stmt *statement;
 	float amount = 0.0;
 	
 	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-		sqlite3_bind_text(statement, 1, [[fromDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-        sqlite3_bind_text(statement, 2, [[toDate dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 1, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        
+		if (sqlite3_step(statement) == SQLITE_ROW) {
+			amount = sqlite3_column_double(statement, 0);
+		}
+	}
+	
+	sqlite3_finalize(statement);
+    
+	return [NSNumber numberWithFloat:amount];
+}
+
+- (NSNumber *)revenueFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate application:(PSApplication *)application {
+	NSString *sql = [NSString stringWithFormat:@"SELECT TOTAL(units * %@) FROM sales WHERE apple_id = ? AND (date >= ? AND date <= ?) AND type_id IN ('1', 'IA1', 'IA9', 'IAY', '1T', '1F', 'F1')", self.currencyColumn];
+	sqlite3_stmt *statement;
+	float amount = 0.0;
+	
+	if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 2, [[fromDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 3, [[toDate dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW) {
 			amount = sqlite3_column_double(statement, 0);
@@ -833,7 +936,7 @@ static PSData *sharedInstance = nil;
     NSDate *date = [NSDate date];
     
     if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW && sqlite3_column_text(statement, 0) != NULL) {
 			date = [NSDate dateFromDbString:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)]];
@@ -851,7 +954,7 @@ static PSData *sharedInstance = nil;
     NSDate *date = [NSDate date];
     
     if (sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%ld", application.identifier] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW && sqlite3_column_text(statement, 0) != NULL) {
 			date = [NSDate dateFromDbString:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)]];
@@ -940,8 +1043,8 @@ static PSData *sharedInstance = nil;
         sqlite3_bind_int(statement, 2, top.store.identifier);
         sqlite3_bind_int(statement, 3, top.category.identifier);
         sqlite3_bind_int(statement, 4, top.pop.identifier);
-        sqlite3_bind_text(statement, 5, [[from dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
-		sqlite3_bind_text(statement, 6, [[to dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 5, [[from dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 6, [[to dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 			PSRank *rank = [[PSRank alloc] initWithPrimaryKey:sqlite3_column_int(statement, 0) database:_db];

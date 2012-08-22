@@ -75,7 +75,7 @@
             sqlite3_bind_int(statement, 6, stars2);
             sqlite3_bind_int(statement, 7, stars1);
             sqlite3_bind_double(statement, 8, [average doubleValue]);
-            sqlite3_bind_text(statement, 9, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 9, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
             
             sqlite3_step(statement);										
         }
@@ -96,7 +96,7 @@
             sqlite3_bind_int(statement, 6, stars2);
             sqlite3_bind_int(statement, 7, stars1);
             sqlite3_bind_double(statement, 8, [average doubleValue]);
-            sqlite3_bind_text(statement, 9, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 9, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
             
             sqlite3_step(statement);										
         }

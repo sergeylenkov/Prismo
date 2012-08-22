@@ -216,7 +216,7 @@
             if (count == 1) {
                 [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"You have new review" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];			
             } else {
-                [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:[NSString stringWithFormat:@"You have %d new reviews", count] notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
+                [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:[NSString stringWithFormat:@"You have %ld new reviews", count] notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
             }
 		} else {
 			[GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"No new reviews" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
@@ -282,7 +282,7 @@
     NSMutableArray *categories = [[NSMutableArray alloc] init];
     
     for (PSCategory *category in data.categories) {
-        if ([[selectedCategories objectForKey:[NSString stringWithFormat:@"%d", category.identifier]] boolValue]) {
+        if ([[selectedCategories objectForKey:[NSString stringWithFormat:@"%ld", category.identifier]] boolValue]) {
             [categories addObject:category];
         }
     }
@@ -291,7 +291,7 @@
     NSMutableArray *stores = [[NSMutableArray alloc] init];
     
     for (PSStore *store in data.stores) {
-        if ([[selectedStores objectForKey:[NSString stringWithFormat:@"%d", store.identifier]] boolValue]) {
+        if ([[selectedStores objectForKey:[NSString stringWithFormat:@"%ld", store.identifier]] boolValue]) {
             [stores addObject:store];
         }
     }

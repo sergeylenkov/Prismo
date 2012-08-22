@@ -75,7 +75,7 @@
 			return @"-";
 		}
 		
-		return [NSString stringWithFormat:@"%d", rating.stars5];
+		return [NSString stringWithFormat:@"%ld", rating.stars5];
 	}
 	
 	if ([[tableColumn identifier] isEqualToString:@"stars_4"]) {
@@ -83,7 +83,7 @@
 			return @"-";
 		}
 		
-		return [NSString stringWithFormat:@"%d", rating.stars4];
+		return [NSString stringWithFormat:@"%ld", rating.stars4];
 	}
 	
 	if ([[tableColumn identifier] isEqualToString:@"stars_3"]) {
@@ -91,7 +91,7 @@
 			return @"-";
 		}
 		
-		return [NSString stringWithFormat:@"%d", rating.stars3];
+		return [NSString stringWithFormat:@"%ld", rating.stars3];
 	}
 	
 	if ([[tableColumn identifier] isEqualToString:@"stars_2"]) {
@@ -99,7 +99,7 @@
 			return @"-";
 		}
 		
-		return [NSString stringWithFormat:@"%d", rating.stars2];
+		return [NSString stringWithFormat:@"%ld", rating.stars2];
 	}
 
 	if ([[tableColumn identifier] isEqualToString:@"stars_1"]) {
@@ -107,7 +107,7 @@
 			return @"-";
 		}
 		
-		return [NSString stringWithFormat:@"%d", rating.stars1];
+		return [NSString stringWithFormat:@"%ld", rating.stars1];
 	}
 	
 	return @"";

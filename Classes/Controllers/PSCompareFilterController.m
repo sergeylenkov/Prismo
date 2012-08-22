@@ -94,7 +94,7 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row {
     PSCompare *compare = [applications objectAtIndex:row];
-    NSString *key = [NSString stringWithFormat:@"%d_%d", compare.application.identifier, compare.type];
+    NSString *key = [NSString stringWithFormat:@"%ld_%ld", compare.application.identifier, compare.type];
    
 	if ([[tableColumn identifier] isEqualToString:@"name"]) {
         BOOL selected = [[selection objectForKey:key] boolValue];
@@ -113,7 +113,7 @@
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	if ([[tableColumn identifier] isEqualToString:@"name"]) {
         PSCompare *compare = [applications objectAtIndex:row];
-        NSString *key = [NSString stringWithFormat:@"%d_%d", compare.application.identifier, compare.type];
+        NSString *key = [NSString stringWithFormat:@"%ld_%ld", compare.application.identifier, compare.type];
         
 		NSNumber *value = [NSNumber numberWithBool:[object boolValue]];
         

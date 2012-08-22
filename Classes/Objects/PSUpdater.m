@@ -190,7 +190,7 @@
                 sqlite3_bind_double(insertStatement, 10, sqlite3_column_double(selectStatement, 9));
                 
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(selectStatement, 10)];
-                sqlite3_bind_text(insertStatement, 11, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(insertStatement, 11, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
                 
                 sqlite3_bind_double(insertStatement, 12, sqlite3_column_double(selectStatement, 11));
                 sqlite3_bind_double(insertStatement, 13, sqlite3_column_double(selectStatement, 12));
@@ -243,7 +243,7 @@
                 sqlite3_bind_int(statement, 5, sqlite3_column_int(selectStatement, 3));
                 
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_double(selectStatement, 4)];
-                sqlite3_bind_text(statement, 6, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(statement, 6, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
                 
                 sqlite3_step(statement);										
             }

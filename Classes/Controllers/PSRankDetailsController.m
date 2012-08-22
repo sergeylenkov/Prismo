@@ -92,7 +92,7 @@
 		if (rank.place == -1) {
 			return @"-";
 		} else {
-			return [NSString stringWithFormat:@"%d", rank.place];
+			return [NSString stringWithFormat:@"%ld", rank.place];
 		}
 	}
 	

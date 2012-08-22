@@ -28,10 +28,10 @@
 }
 
 - (void)initialization {
-	if ([defaults objectForKey:[NSString stringWithFormat:@"%d Ratings View Index", application.identifier]] == nil) {
+	if ([defaults objectForKey:[NSString stringWithFormat:@"%ld Ratings View Index", application.identifier]] == nil) {
 		[changeViewButton setSelectedSegment:0];
 	} else {
-		int index = [[defaults objectForKey:[NSString stringWithFormat:@"%d Ratings View Index", application.identifier]] intValue];
+		int index = [[defaults objectForKey:[NSString stringWithFormat:@"%ld Ratings View Index", application.identifier]] intValue];
 		[changeViewButton setSelectedSegment:index];
 	}
 			
@@ -65,14 +65,14 @@
 	
         for (PSReview *review in reviewsController.reviews) {
             NSString *text = [review.text stringByReplacingOccurrencesOfString:@"\"" withString:@"'"];
-            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"\n", [dateFormatter stringFromDate:review.date], review.rating, review.version, review.store.name, review.name, review.title, text];
+            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%ld\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"\n", [dateFormatter stringFromDate:review.date], review.rating, review.version, review.store.name, review.name, review.title, text];
             csv = [csv stringByAppendingString:line];
         }
     } else {
         csv = @"\"STORE\",\"AVERAGE\",\"5 STARS\",\"4 STARS\",\"3 STARS\",\"2 STARS\",\"1 STAR\"\n";
 	
         for (PSRating *rating in ratingsController.ratings) {
-            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%.2f\",\"%d\",\"%d\",\"%d\",\"%d\",\"%d\"\n", rating.store.name, [rating.average floatValue], rating.stars5, rating.stars4, rating.stars3, rating.stars2, rating.stars1];
+            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%.2f\",\"%ld\",\"%ld\",\"%ld\",\"%ld\",\"%ld\"\n", rating.store.name, [rating.average floatValue], rating.stars5, rating.stars4, rating.stars3, rating.stars2, rating.stars1];
             csv = [csv stringByAppendingString:line];
         }
     }
@@ -102,7 +102,7 @@
         printableView = ratingsController.view;
 	}	
 	
-	[defaults setObject:[NSNumber numberWithInt:[changeViewButton selectedSegment]] forKey:[NSString stringWithFormat:@"%d Ratings View Index", application.identifier]];
+	[defaults setObject:[NSNumber numberWithInt:[changeViewButton selectedSegment]] forKey:[NSString stringWithFormat:@"%ld Ratings View Index", application.identifier]];
 }
 
 @end

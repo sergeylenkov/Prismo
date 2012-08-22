@@ -153,10 +153,10 @@
     filterController.application = application;
     [filterController initialization];
 
-	if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d View Index", application.identifier]] == nil) {
+	if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld View Index", application.identifier]] == nil) {
 		[changeViewButton setSelectedSegment:0];
 	} else {
-		NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%d View Index", application.identifier]] intValue];
+		NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld View Index", application.identifier]] intValue];
 		
 		if (index < [changeViewButton segmentCount]) {
 			[changeViewButton setSelectedSegment:index];
@@ -261,13 +261,13 @@
                     if (filterController.groupBy == PSGraphGroupByWeek) {
                         if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                             if ([startDate month] == [endDate month]) {
-                                newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
+                                newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
                             } else {
                                 newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]];
                             }
                         } else {
                             if ([startDate month] == [endDate month]) {
-                                newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
+                                newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
                             } else {
                                 newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
                             }
@@ -309,13 +309,13 @@
                 if (filterController.groupBy == PSGraphGroupByWeek) {
                     if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                         if ([startDate month] == [endDate month]) {
-                            newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortDateWithFullMonth:endDate]];
+                            newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortDateWithFullMonth:endDate]];
                         } else {
                             newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]];
                         }
                     } else {
                         if ([startDate month] == [endDate month]) {
-                            newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
+                            newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
                         } else {
                             newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
                         }
@@ -403,7 +403,7 @@
     int totalDays = [minDate daysCountBetweenDate:maxDate] + 1;
 	
     [nameField setTitleWithMnemonic:application.name];
-	[appleIDField setTitleWithMnemonic:[NSString stringWithFormat:@"%d", application.identifier]];
+	[appleIDField setTitleWithMnemonic:[NSString stringWithFormat:@"%ld", application.identifier]];
     
     [daysField setTitleWithMnemonic:[NSString stringWithFormat:@"%d", totalDays]];
     
@@ -472,7 +472,7 @@
         NSString *csv = @"\"DATE\",\"TOTAL\",\"DOWNLOADS\",\"REFUNDS\",\"UPDATES\",\"SALES\",\"REVENUE\"\n";
 	
         for (PSSale *sale in detailsController.sales) {
-            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%d\",\"%d\",\"%d\",\"%d\",\"%@\"\n", [sale.date dbDateFormat], [sale.total intValue], [sale.downloads intValue], [sale.refunds intValue], [sale.updates intValue], [sale.sales intValue], [numberFormatter stringFromNumber:sale.revenue]];
+            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%d\",\"%d\",\"%d\",\"%d\",\"%@\"\n", [sale.date dbDateRepresentation], [sale.total intValue], [sale.downloads intValue], [sale.refunds intValue], [sale.updates intValue], [sale.sales intValue], [numberFormatter stringFromNumber:sale.revenue]];
             csv = [csv stringByAppendingString:line];
         }
 	
@@ -643,7 +643,7 @@
         printableView = detailsController.view;
 	}
 		
-	[PSSettings setFilterValue:[NSNumber numberWithInt:changeViewButton.selectedSegment] forKey:[NSString stringWithFormat:@"%d View Index", application.identifier]];
+	[PSSettings setFilterValue:[NSNumber numberWithInt:changeViewButton.selectedSegment] forKey:[NSString stringWithFormat:@"%ld View Index", application.identifier]];
 }
 
 @end

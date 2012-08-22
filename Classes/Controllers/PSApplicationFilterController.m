@@ -26,10 +26,9 @@
 
 - (void)initialization {
     PSData *data = [PSData sharedData];
-    //NSArray *appSales = [data salesByApplication:application];
-    
-    self.fromDate = [data minSaleDateForApplication:application]; //[NSDate dateFromDbString:[[appSales objectAtIndex:0] objectForKey:@"date"]];
-    self.toDate = [data maxSaleDateForApplication:application]; //[NSDate dateFromDbString:[[appSales lastObject] objectForKey:@"date"]];
+
+    self.fromDate = [data minSaleDateForApplication:application];
+    self.toDate = [data maxSaleDateForApplication:application];
     
 	[fromDateButton setMinDate:fromDate];
 	[fromDateButton setMaxDate:toDate];
@@ -37,31 +36,31 @@
 	[toDateButton setMinDate:fromDate];
 	[toDateButton setMaxDate:toDate];
     
-    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Min Date", application.identifier]] != nil) {
-		self.fromDate = [PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Min Date", application.identifier]];
+    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Min Date", application.identifier]] != nil) {
+		self.fromDate = [PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Min Date", application.identifier]];
 	}	
 	
     [fromDateButton setDateValue:fromDate];
     [toDateButton setDateValue:toDate];
     
-    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Graph Type", application.identifier]] == nil) {
+    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Graph Type", application.identifier]] == nil) {
 		[typeButton selectItem:[typeButton itemAtIndex:0]];
 	} else {
-        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Graph Type", application.identifier]] intValue];
+        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Graph Type", application.identifier]] intValue];
 		[typeButton selectItem:[typeButton itemAtIndex:index]];
 	}
 	
-	if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Graph By", application.identifier]] == nil) {
+	if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Graph By", application.identifier]] == nil) {
 		[byButton selectItem:[byButton itemAtIndex:0]];
 	} else {
-        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Graph By", application.identifier]] intValue];
+        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Graph By", application.identifier]] intValue];
 		[byButton selectItem:[byButton itemAtIndex:index]];
 	}
 	
-    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Map Type", application.identifier]] == nil) {
+    if ([PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Map Type", application.identifier]] == nil) {
 		[mapTypeButton selectItem:[mapTypeButton itemAtIndex:0]];
 	} else {
-        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Map Type", application.identifier]] intValue];
+        NSInteger index = [[PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Map Type", application.identifier]] intValue];
 		[mapTypeButton selectItem:[mapTypeButton itemAtIndex:index]];
 	}
     
@@ -74,28 +73,28 @@
     self.fromDate = [fromDateButton dateValue];
     self.toDate = [toDateButton dateValue];
     
-	[PSSettings setFilterValue:fromDate forKey:[NSString stringWithFormat:@"%d Min Date", application.identifier]];	
+	[PSSettings setFilterValue:fromDate forKey:[NSString stringWithFormat:@"%ld Min Date", application.identifier]];
 	[self filterDidChanged];
 }
 
 - (IBAction)changeType:(id)sender {
     graphType = typeButton.indexOfSelectedItem;
     
-	[PSSettings setFilterValue:[NSNumber numberWithInt:graphType] forKey:[NSString stringWithFormat:@"%d Graph Type", application.identifier]];	
+	[PSSettings setFilterValue:[NSNumber numberWithInt:graphType] forKey:[NSString stringWithFormat:@"%ld Graph Type", application.identifier]];
 	[self filterDidChanged];
 }
 
 - (IBAction)changeBy:(id)sender {
     groupBy = byButton.indexOfSelectedItem;
     
-	[PSSettings setFilterValue:[NSNumber numberWithInt:groupBy] forKey:[NSString stringWithFormat:@"%d Graph By", application.identifier]];	
+	[PSSettings setFilterValue:[NSNumber numberWithInt:groupBy] forKey:[NSString stringWithFormat:@"%ld Graph By", application.identifier]];
 	[self filterDidChanged];
 }
 
 - (IBAction)changeMapType:(id)sender {
     mapType = mapTypeButton.indexOfSelectedItem;
     
-	[PSSettings setFilterValue:[NSNumber numberWithInt:mapType] forKey:[NSString stringWithFormat:@"%d Map Type", application.identifier]];	
+	[PSSettings setFilterValue:[NSNumber numberWithInt:mapType] forKey:[NSString stringWithFormat:@"%ld Map Type", application.identifier]];
 	[self filterDidChanged];
 }
 

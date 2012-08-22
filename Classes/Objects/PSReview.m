@@ -77,7 +77,7 @@
             sqlite3_bind_text(statement, 5, [text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 6, [version UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int(statement, 7, rating);
-            sqlite3_bind_text(statement, 8, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 8, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int(statement, 9, isNew);
             
             sqlite3_step(statement);										
@@ -98,7 +98,7 @@
             sqlite3_bind_text(statement, 5, [text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 6, [version UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int(statement, 7, rating);
-            sqlite3_bind_text(statement, 8, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 8, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int(statement, 9, isNew);
             
             sqlite3_step(statement);										

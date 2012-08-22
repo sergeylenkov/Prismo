@@ -109,7 +109,7 @@
             sqlite3_finalize(transactionStatement);
             
             if (sqlite3_prepare_v2(syncDB, [selectSQL UTF8String], -1, &selectStatement, NULL) == SQLITE_OK) {
-                sqlite3_bind_text(selectStatement, 1, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(selectStatement, 1, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
                 
                 while (sqlite3_step(selectStatement) == SQLITE_ROW) {					
                     if (sqlite3_prepare_v2(originalDB, [insertSQL UTF8String], -1, &insertStatement, NULL) == SQLITE_OK) {
@@ -210,7 +210,7 @@
             if (sqlite3_prepare_v2(originalDB, [selectSQL UTF8String], -1, &selectStatement, NULL) == SQLITE_OK) {
                 sqlite3_bind_int(selectStatement, 1, rating.store.identifier);
                 sqlite3_bind_int(selectStatement, 2, rating.application.identifier);
-                sqlite3_bind_text(selectStatement, 3, [[rating.date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(selectStatement, 3, [[rating.date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
                 
                 if (sqlite3_step(selectStatement) == SQLITE_ROW) {				
                     PSRating *newRating = [[PSRating alloc] initWithPrimaryKey:sqlite3_column_int(statement, 0) database:originalDB];
@@ -274,7 +274,7 @@
                 sqlite3_bind_int(selectStatement, 2, rank.category.identifier);
                 sqlite3_bind_int(selectStatement, 3, rank.application.identifier);
                 sqlite3_bind_int(selectStatement, 4, rank.pop.identifier);
-                sqlite3_bind_text(selectStatement, 5, [[rank.date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+                sqlite3_bind_text(selectStatement, 5, [[rank.date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
                 
                 if (sqlite3_step(selectStatement) == SQLITE_ROW) {				
                     count = sqlite3_column_int(selectStatement, 0);
@@ -452,7 +452,7 @@
 	int count = 0;
 	
 	if (sqlite3_prepare_v2(originalDB, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-        sqlite3_bind_text(statement, 1, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 1, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW) {
 			count = sqlite3_column_int(statement, 0);
@@ -469,7 +469,7 @@
 	int count = 0;
 	
 	if (sqlite3_prepare_v2(originalDB, [sql UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-		sqlite3_bind_text(statement, 1, [[date dbDateFormat] UTF8String], -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(statement, 1, [[date dbDateRepresentation] UTF8String], -1, SQLITE_TRANSIENT);
         
 		if (sqlite3_step(statement) == SQLITE_ROW) {
 			count = sqlite3_column_int(statement, 0);

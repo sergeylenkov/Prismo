@@ -38,7 +38,7 @@
     PSApplication *application = [data.applications objectAtIndex:row];
     
 	if ([[tableColumn identifier] isEqualToString:@"name"]) {
-        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%d", application.identifier]] boolValue];
+        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%ld", application.identifier]] boolValue];
         
 		NSButtonCell *cell = [tableColumn dataCell];
         
@@ -59,9 +59,9 @@
 		NSNumber *value = [NSNumber numberWithBool:[object boolValue]];
         
         if ([value boolValue]) {
-            [selection setObject:value forKey:[NSString stringWithFormat:@"%d", application.identifier]];
+            [selection setObject:value forKey:[NSString stringWithFormat:@"%ld", application.identifier]];
         } else {
-            [selection removeObjectForKey:[NSString stringWithFormat:@"%d", application.identifier]];
+            [selection removeObjectForKey:[NSString stringWithFormat:@"%ld", application.identifier]];
         }
         
         [defaults setObject:selection forKey:@"Selected Apps"];

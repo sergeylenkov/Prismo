@@ -247,13 +247,13 @@
                     if (filterController.groupBy == PSGraphGroupByWeek) {
                         if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                             if ([startDate month] == [endDate month]) {
-                                newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
+                                newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
                             } else {
                                 newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]];
                             }
                         } else {
                             if ([startDate month] == [endDate month]) {
-                                newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
+                                newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
                             } else {
                                 newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
                             }
@@ -295,13 +295,13 @@
                 if (filterController.groupBy == PSGraphGroupByWeek) {
                     if ([startDate year] == [[NSDate date] year] && [endDate year] == [[NSDate date] year]) {
                         if ([startDate month] == [endDate month]) {
-                            newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
+                            newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedShortPeriodDateWithFullMonth:endDate]];
                         } else {
                             newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedShortDateWithFullMonth:endDate]];
                         }
                     } else {
                         if ([startDate month] == [endDate month]) {
-                            newSale.description = [NSString stringWithFormat:@"%d - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
+                            newSale.description = [NSString stringWithFormat:@"%ld - %@", [startDate day], [PSUtilites localizedMediumPeriodDateWithFullMonth:endDate]];
                         } else {
                             newSale.description = [NSString stringWithFormat:@"%@ - %@", [PSUtilites localizedShortDateWithFullMonth:startDate], [PSUtilites localizedMediumDateWithFullMonth:endDate]];
                         }
@@ -389,7 +389,7 @@
 	NSString *csv = @"\"DATE\",\"TOTAL\",\"DOWNLOADS\",\"REFUNDS\",\"UPDATES\",\"SALES\",\"REVENUE\"\n";
 	
 	for (PSSale *sale in detailsController.sales) {
-		NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%d\",\"%d\",\"%d\",\"%d\",\"%@\"\n", [sale.date dbDateFormat], [sale.total intValue], [sale.downloads intValue], [sale.refunds intValue], [sale.updates intValue], [sale.sales intValue], [numberFormatter stringFromNumber:sale.revenue]];
+		NSString *line = [NSString stringWithFormat:@"\"%@\",\"%d\",\"%d\",\"%d\",\"%d\",\"%d\",\"%@\"\n", [sale.date dbDateRepresentation], [sale.total intValue], [sale.downloads intValue], [sale.refunds intValue], [sale.updates intValue], [sale.sales intValue], [numberFormatter stringFromNumber:sale.revenue]];
 		csv = [csv stringByAppendingString:line];
 	}
 

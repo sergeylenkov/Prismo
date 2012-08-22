@@ -36,7 +36,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5.7</string>
+	<string>1.5.8</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009-2012 Sergey Lenkov</string>
 	<key>NSMainNibFile</key>

@@ -37,7 +37,7 @@
     NSMutableArray *applications = [[NSMutableArray alloc] init];
     
     for (PSApplication *application in data.applications) {
-        if ([[selectedApps objectForKey:[NSString stringWithFormat:@"%d", application.identifier]] boolValue]) {
+        if ([[selectedApps objectForKey:[NSString stringWithFormat:@"%ld", application.identifier]] boolValue]) {
             [applications addObject:application];
         }
     }
@@ -64,14 +64,14 @@
 			
 			[self changePhaseWithMessage:[NSString stringWithFormat:@"%@ - %@", application.name, store.name]];
             
-            NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%d&pageNumber=0&sortOrdering=2&type=Purple+Software", application.identifier];
+            NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%ld&pageNumber=0&sortOrdering=2&type=Purple+Software", application.identifier];
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
             
             request.timeOutSeconds = 60;
             request.shouldRedirect = NO;
             
             [request addRequestHeader:@"User-Agent" value:@"iTunes/10.1.1 (Macintosh; Intel Mac OS X 10.6.6) AppleWebKit/533.19.4"];
-            [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%d,12", store.identifier]];
+            [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,12", store.identifier]];
             [request addRequestHeader:@"X-Apple-Partner" value:@"origin.0"];
             [request addRequestHeader:@"X-Apple-Connection-Type" value:@"WiFi"];
             

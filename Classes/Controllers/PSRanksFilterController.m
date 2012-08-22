@@ -94,11 +94,11 @@
         [topsButton addItemWithTitle:item.name];
     }
     
-    NSString *selectedTop = [PSSettings filterValueForKey:[NSString stringWithFormat:@"%d Ranks Selected Top", application.identifier]];
+    NSString *selectedTop = [PSSettings filterValueForKey:[NSString stringWithFormat:@"%ld Ranks Selected Top", application.identifier]];
     
     for (int i = 0; i < [tops count]; i++) {
         PSTop *item = [tops objectAtIndex:i];
-        NSString *key = [NSString stringWithFormat:@"%d_%d_%d_%d", item.store.identifier, item.category.identifier, item.pop.identifier, item.type];
+        NSString *key = [NSString stringWithFormat:@"%ld_%ld_%ld_%ld", item.store.identifier, item.category.identifier, item.pop.identifier, item.type];
         
         if ([key isEqualToString:selectedTop]) {
             [topsButton selectItemAtIndex:i];
@@ -113,7 +113,7 @@
     self.fromDate = [fromDateButton dateValue];
     self.toDate = [toDateButton dateValue];
     
-	[PSSettings setFilterValue:fromDate forKey:[NSString stringWithFormat:@"%d Ranks Min Date", application.identifier]];	
+	[PSSettings setFilterValue:fromDate forKey:[NSString stringWithFormat:@"%ld Ranks Min Date", application.identifier]];	
 	[self filterDidChanged];
 }
 
@@ -133,9 +133,9 @@
     [fromDateButton setDateValue:fromDate];
     [toDateButton setDateValue:toDate];
     
-    NSString *key = [NSString stringWithFormat:@"%d_%d_%d_%d", top.store.identifier, top.category.identifier, top.pop.identifier, top.type];
+    NSString *key = [NSString stringWithFormat:@"%ld_%ld_%ld_%ld", top.store.identifier, top.category.identifier, top.pop.identifier, top.type];
     
-	[PSSettings setFilterValue:key forKey:[NSString stringWithFormat:@"%d Ranks Selected Top", application.identifier]];
+	[PSSettings setFilterValue:key forKey:[NSString stringWithFormat:@"%ld Ranks Selected Top", application.identifier]];
     
 	[self filterDidChanged];
 }

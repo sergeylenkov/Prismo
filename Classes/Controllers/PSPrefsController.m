@@ -143,7 +143,7 @@
             dateString = [PSUtilites localizedShortDateWithFullMonth:date];
         }
         
-		[lastCheckField setTitleWithMnemonic:[NSString stringWithFormat:@"Last check: %@ at %@", dateString, [date timeFormat]]];
+		[lastCheckField setTitleWithMnemonic:[NSString stringWithFormat:@"Last check: %@ at %@", dateString, [date timeRepresentation]]];
 	}
 	
 	if ([defaults objectForKey:@"Last Reports Check Status"] == nil) {
@@ -162,7 +162,7 @@
             dateString = [PSUtilites localizedShortDateWithFullMonth:date];
         }
         
-		[lastRanksUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last update: %@ at %@", dateString, [date timeFormat]]];
+		[lastRanksUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last update: %@ at %@", dateString, [date timeRepresentation]]];
 	}
 	
 	if ([defaults objectForKey:@"Last Ranks Update Status"] == nil) {
@@ -181,7 +181,7 @@
             dateString = [PSUtilites localizedShortDateWithFullMonth:date];
         }
         
-		[lastReviewsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last reviews update: %@ at %@", dateString, [date timeFormat]]];
+		[lastReviewsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last reviews update: %@ at %@", dateString, [date timeRepresentation]]];
 	}
 	
 	if ([defaults objectForKey:@"Last Reviews Update Status"] == nil) {
@@ -200,7 +200,7 @@
             dateString = [PSUtilites localizedShortDateWithFullMonth:date];
         }
         
-		[lastRatingsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last ratings update: %@ at %@", dateString, [date timeFormat]]];
+		[lastRatingsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last ratings update: %@ at %@", dateString, [date timeRepresentation]]];
 	}
 	
 	if ([defaults objectForKey:@"Last Ratings Update Status"] == nil) {

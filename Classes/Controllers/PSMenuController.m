@@ -279,7 +279,7 @@
     PSSale *sale = [data totalSale];
 
 	if (infoType == 0) {
-		summaryInfo = [[NSString stringWithFormat:@"%d applications, %@ sales, %@%@", [data.applications count], [numberFormatter stringFromNumber:sale.sales], data.currencySymbol, [formatter stringFromNumber:sale.revenue]] copy];
+		summaryInfo = [[NSString stringWithFormat:@"%ld applications, %@ sales, %@%@", [data.applications count], [numberFormatter stringFromNumber:sale.sales], data.currencySymbol, [formatter stringFromNumber:sale.revenue]] copy];
 	} else {
 		summaryInfo = [[NSString stringWithFormat:@"%@ downloads, %@ sales, %@ updates, %@ refunds, %@%@", [numberFormatter stringFromNumber:sale.downloads], [numberFormatter stringFromNumber:sale.sales], [numberFormatter stringFromNumber:sale.updates], [numberFormatter stringFromNumber:sale.refunds], data.currencySymbol, [formatter stringFromNumber:sale.revenue]] copy];
 	}

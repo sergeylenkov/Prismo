@@ -38,7 +38,7 @@
     PSCategory *category = [data.categories objectAtIndex:row];
     
 	if ([[tableColumn identifier] isEqualToString:@"name"]) {
-        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%d", category.identifier]] boolValue];
+        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%ld", category.identifier]] boolValue];
         
 		NSButtonCell *cell = [tableColumn dataCell];
         
@@ -74,9 +74,9 @@
 		NSNumber *value = [NSNumber numberWithBool:[object boolValue]];
         
         if ([value boolValue]) {
-            [selection setObject:value forKey:[NSString stringWithFormat:@"%d", category.identifier]];
+            [selection setObject:value forKey:[NSString stringWithFormat:@"%ld", category.identifier]];
         } else {
-            [selection removeObjectForKey:[NSString stringWithFormat:@"%d", category.identifier]];
+            [selection removeObjectForKey:[NSString stringWithFormat:@"%ld", category.identifier]];
         }
 
         [defaults setObject:selection forKey:@"Selected Tops"];
