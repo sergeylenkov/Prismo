@@ -403,6 +403,7 @@
 		A5BC111210206E9E00AEE416 /* Stars5.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC110C10206E9E00AEE416 /* Stars5.png */; };
 		A5C6840013D3182100DE9448 /* PTKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C683D113D3182100DE9448 /* PTKeychain.m */; };
 		A5C6D8B710FF6EEE00DB69C9 /* User.png in Resources */ = {isa = PBXBuildFile; fileRef = A5C6D8B510FF6EEE00DB69C9 /* User.png */; };
+		A5C7AE0C166BCF16005700CA /* Tiers.v4.sql in Resources */ = {isa = PBXBuildFile; fileRef = A5C7AE0B166BCF16005700CA /* Tiers.v4.sql */; };
 		A5CE1FE0111702AE006B34B1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE1FDF111702AE006B34B1 /* libsqlite3.dylib */; };
 		A5D26D8C14122E520054BB23 /* PSCountrySale.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D26D8B14122E520054BB23 /* PSCountrySale.m */; };
 		A5DCBEB11494927100445050 /* SFBPopoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DCBEAC1494927100445050 /* SFBPopoverWindow.m */; };
@@ -909,6 +910,7 @@
 		A5C683D013D3182100DE9448 /* PTKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeychain.h; sourceTree = "<group>"; };
 		A5C683D113D3182100DE9448 /* PTKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeychain.m; sourceTree = "<group>"; };
 		A5C6D8B510FF6EEE00DB69C9 /* User.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = User.png; path = Resources/Images/User.png; sourceTree = "<group>"; };
+		A5C7AE0B166BCF16005700CA /* Tiers.v4.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Tiers.v4.sql; path = Resources/Tiers.v4.sql; sourceTree = "<group>"; };
 		A5CE1FDF111702AE006B34B1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A5D26D8A14122E520054BB23 /* PSCountrySale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCountrySale.h; sourceTree = "<group>"; };
 		A5D26D8B14122E520054BB23 /* PSCountrySale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCountrySale.m; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A5C7AE0B166BCF16005700CA /* Tiers.v4.sql */,
 				A574E22711DDB5DF00B13880 /* UI */,
 				A52412980FCFDCD30070D58F /* Images */,
 				A53B06B11393E8AF0063036D /* Database.sqlite */,
@@ -2042,6 +2045,7 @@
 				A5B8E6951494E16800CF77EB /* RanksFilterWindow.xib in Resources */,
 				A5B8E6971494F48B00CF77EB /* FilterButton.png in Resources */,
 				A5990E5D14E6C51B00F27F47 /* Reviews32.png in Resources */,
+				A5C7AE0C166BCF16005700CA /* Tiers.v4.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

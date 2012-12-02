@@ -448,7 +448,7 @@
 
 - (NSDictionary *)tiersFroCurrency:(NSString *)currency royalty:(NSNumber *)royalty date:(NSDate *)date {
     int version = 1;
-    
+
     if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateRepresentation]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2011-07-20 00:00:00"] timeIntervalSince1970]) {
         version = 2;
     }
@@ -457,6 +457,10 @@
         version = 3;
     }
     
+    if ([[NSDate dateFromUTCString:[NSString stringWithFormat:@"%@ 00:00:00", [date dbDateRepresentation]]] timeIntervalSince1970] >= [[NSDate dateFromUTCString:@"2012-11-01 00:00:00"] timeIntervalSince1970]) {
+        version = 4;
+    }
+
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init]; 
 
     [dict setObject:[NSNumber numberWithInt:0] forKey:@"royalty_in_usd"];

@@ -598,4 +598,73 @@
     [self addSchema:11 version:@"1.5.3"];
 }
 
+- (void)updateTo159 {
+    NSMutableArray *curriencies = [[NSMutableArray alloc] init];
+    
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('USD', 'USD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('MXN', 'MXN', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('CAD', 'CAD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('GBP', 'GBP', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('EUR', 'EUR', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('CHF', 'CHF', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('NOK', 'NOK', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('AUD', 'AUD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('NZD', 'NZD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('JPY', 'JPY', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('MXN', 'MXP', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('DKK', 'DKK', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('SEK', 'SEK', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('CNY', 'CNY', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('SGD', 'SGD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('HKD', 'HKD', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('RUB', 'RUB', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('INR', 'INR', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('IDR', 'IDR', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('ILS', 'ILS', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('ZAR', 'ZAR', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('SAR', 'SAR', 4)"];
+    [curriencies addObject:@"INSERT INTO 'currencies' ('currency_code', 'tier_currency_code', 'version') VALUES ('AED', 'AED', 4)"];
+    
+    for (NSString *curriency in curriencies) {
+        sqlite3_stmt *statement;
+        
+        sqlite3_prepare_v2(_db, [curriency UTF8String], -1, &statement, NULL);
+        sqlite3_step(statement);
+        sqlite3_finalize(statement);
+    }
+    
+    [curriencies release];
+    
+    NSString *sql = @"UPDATE 'tiers' SET to_date = '31-10-2012' WHERE to_date IS NULL";
+    sqlite3_stmt *statement;
+    
+    sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL);
+	sqlite3_step(statement);
+	sqlite3_finalize(statement);
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Tiers.v4" ofType:@"sql"];
+    
+    NSMutableArray *queries = [[NSMutableArray alloc] init];
+    
+    [queries addObjectsFromArray:[[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"]];
+    
+    for (NSString *query in queries) {
+        sqlite3_stmt *statement;
+        
+        sqlite3_prepare_v2(_db, [query UTF8String], -1, &statement, NULL);
+        sqlite3_step(statement);
+        sqlite3_finalize(statement);
+    }
+    
+    [queries release];
+    
+    sql = @"UPDATE 'tiers' SET version = 4 WHERE version IS NULL";
+    
+    sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL);
+	sqlite3_step(statement);
+	sqlite3_finalize(statement);
+    
+    [self addSchema:12 version:@"1.5.9"];
+}
+
 @end

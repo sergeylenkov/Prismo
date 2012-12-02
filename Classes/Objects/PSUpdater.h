@@ -28,5 +28,6 @@
 - (void)updateTo151;
 - (void)updateTo152;
 - (void)updateTo153;
+- (void)updateTo159;
 
 @end
