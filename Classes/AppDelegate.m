@@ -6,7 +6,6 @@
 	[preferencesController release];
 	[reportDownloader release];
 	[reviewParser release];
-    [ratingParser release];
 	[rankParser release];
     [dropbox release];
 	[super dealloc];
@@ -45,9 +44,6 @@
 	
 	reviewParser = [[PSReviewParser alloc] initWithDatabase:[Database sharedDatabase]];
 	reviewParser.delegate = self;
-	
-    ratingParser = [[PSRatingParser alloc] initWithDatabase:[Database sharedDatabase]];
-	ratingParser.delegate = self;
     
 	rankParser = [[PSRankParser alloc] initWithDatabase:[Database sharedDatabase]];
 	rankParser.delegate = self;
@@ -222,42 +218,6 @@
 			[GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"No new reviews" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
 		}
 	}
-	
-    if (isNeedDownloadReports) {
-		[self performSelectorOnMainThread:@selector(downloadReports:) withObject:nil waitUntilDone:YES];
-	}
-    
-    if (isNeedUpdateRanks) {		
-		[self performSelectorOnMainThread:@selector(updateRanks:) withObject:nil waitUntilDone:YES];
-	}
-    
-    [self stopProgressAnimation];
-    [self performSelectorOnMainThread:@selector(hideProgressView) withObject:nil waitUntilDone:YES];
-    
-	[pool release];
-}
-
-- (void)downloadRatingsThread {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    PSData *data = [PSData sharedData];
-    NSDictionary *applications = [[NSUserDefaults standardUserDefaults] objectForKey:@"Selected Apps"];
-    
-    [self performSelectorOnMainThread:@selector(showProgressView) withObject:nil waitUntilDone:YES];
-    [self startProgressAnimationWithTitle:@"Updating ratings..." maxValue:[applications count] * [data.stores count] indeterminate:NO];
-    
-	ratingParser.isCanceled = NO;
-	[ratingParser parse];
-    
-	if (!ratingParser.isCanceled) {	
-        [self startProgressAnimationWithTitle:@"Updating ratings..." maxValue:0.0 indeterminate:YES];
-        [self changePhaseWithMessage:@"Reloading data..."];
-        [NSThread sleepForTimeInterval:1.0];
-        
-        [self performSelectorOnMainThread:@selector(refreshMenu) withObject:nil waitUntilDone:YES];
-        
-		[GrowlApplicationBridge notifyWithTitle:@"Ratings" description:@"Ratings updated successfully" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
-    }
 	
     if (isNeedDownloadReports) {
 		[self performSelectorOnMainThread:@selector(downloadReports:) withObject:nil waitUntilDone:YES];
@@ -579,7 +539,6 @@
 - (IBAction)cancelDownloads:(id)sender {
 	reportDownloader.isCanceled = YES;
 	reviewParser.isCanceled = YES;
-    ratingParser.isCanceled = YES;
 	rankParser.isCanceled = YES;
 	dropbox.isCanceled = YES;
     

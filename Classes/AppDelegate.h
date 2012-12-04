@@ -6,7 +6,6 @@
 #import "PSPrefsController.h"
 #import "PSReportDownloader.h"
 #import "PSReviewParser.h"
-#import "PSRatingParser.h"
 #import "PSRankParser.h"
 #import "PSDropboxSync.h"
 #import "PSUpdater.h"
@@ -38,7 +37,6 @@
     BOOL isNeedDownloadReports;
 	BOOL isDownloading;
 	PSReviewParser *reviewParser;
-    PSRatingParser *ratingParser;
 	PSRankParser *rankParser;
 	PSReportDownloader *reportDownloader;
     PSDropboxSync *dropbox;
@@ -61,7 +59,6 @@
 - (IBAction)importReports:(id)sender;
 - (IBAction)downloadReports:(id)sender;
 - (IBAction)downloadReviews:(id)sender;
-- (IBAction)downloadRatings:(id)sender;
 - (IBAction)updateRanks:(id)sender;
 - (IBAction)cancelDownloads:(id)sender;
 - (IBAction)syncDropbox:(id)sender;

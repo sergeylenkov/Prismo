@@ -10,6 +10,7 @@
 #import <Growl/GrowlApplicationBridge.h>
 #import "ASIHTTPRequest.h"
 #import "RegexKitLite.h"
+#import "SBJson.h"
 #import "NSString+HTML.h"
 #import "PSApplication.h"
 #import "PSStore.h"
@@ -27,8 +28,8 @@
 - (id)initWithDatabase:(sqlite3 *)db;
 - (void)parse;
 
-- (NSString *)downloadReviewsForApplication:(PSApplication *)application store:(PSStore *)store page:(NSInteger)page;
 - (void)importReviews:(NSArray *)reviews;
+- (void)importRatings:(NSArray *)ratings;
 - (NSDate *)dateFromString:(NSString *)str;
 
 - (void)startProgressAnimationWithTitle:(NSString *)title maxValue:(NSInteger)max indeterminate:(BOOL)indeterminate;

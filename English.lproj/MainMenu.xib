@@ -2,35 +2,35 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2182</string>
+			<string key="NS.object.0">2843</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>NSBox</string>
+			<string>NSButton</string>
+			<string>NSButtonCell</string>
+			<string>NSCustomObject</string>
+			<string>NSCustomView</string>
+			<string>NSImageCell</string>
+			<string>NSImageView</string>
+			<string>NSMenu</string>
+			<string>NSMenuItem</string>
+			<string>NSOutlineView</string>
+			<string>NSProgressIndicator</string>
+			<string>NSScrollView</string>
 			<string>NSScroller</string>
 			<string>NSSplitView</string>
-			<string>NSButton</string>
-			<string>NSMenu</string>
-			<string>NSScrollView</string>
-			<string>NSTextFieldCell</string>
-			<string>NSButtonCell</string>
-			<string>NSMenuItem</string>
-			<string>NSProgressIndicator</string>
-			<string>NSBox</string>
-			<string>NSImageView</string>
-			<string>NSImageCell</string>
-			<string>NSOutlineView</string>
-			<string>NSCustomView</string>
-			<string>NSCustomObject</string>
-			<string>NSView</string>
-			<string>NSWindowTemplate</string>
 			<string>NSTableColumn</string>
 			<string>NSTextField</string>
+			<string>NSTextFieldCell</string>
+			<string>NSView</string>
+			<string>NSWindowTemplate</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -248,16 +248,6 @@
 									<string key="NSTitle">Update Reviews</string>
 									<string key="NSKeyEquiv">R</string>
 									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="538185586"/>
-									<reference key="NSMixedImage" ref="636781825"/>
-								</object>
-								<object class="NSMenuItem" id="951652380">
-									<reference key="NSMenu" ref="7316663"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<string key="NSTitle">Update Ratings</string>
-									<string key="NSKeyEquiv">r</string>
-									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="538185586"/>
 									<reference key="NSMixedImage" ref="636781825"/>
@@ -838,6 +828,7 @@
 							<string key="NSFrame">{{362, 4}, {475, 25}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="878159927">
 								<int key="NSCellFlags">-2080244224</int>
@@ -989,7 +980,7 @@
 												<string key="NSReuseIdentifierKey">_NS:1658</string>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="547800784">
-													<int key="NSCellFlags">130560</int>
+													<int key="NSCellFlags">134348288</int>
 													<int key="NSCellFlags2">33554432</int>
 													<object class="NSCustomResource" key="NSContents">
 														<string key="NSClassName">NSImage</string>
@@ -1427,22 +1418,6 @@
 						<reference key="destination" ref="172471246"/>
 					</object>
 					<int key="connectionID">968</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">downloadRatings:</string>
-						<reference key="source" ref="812711410"/>
-						<reference key="destination" ref="951652380"/>
-					</object>
-					<int key="connectionID">970</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">downloadRatingItem</string>
-						<reference key="source" ref="812711410"/>
-						<reference key="destination" ref="951652380"/>
-					</object>
-					<int key="connectionID">971</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1931,7 +1906,6 @@
 							<reference ref="603082655"/>
 							<reference ref="590917462"/>
 							<reference ref="826038975"/>
-							<reference ref="951652380"/>
 						</object>
 						<reference key="parent" ref="866910644"/>
 					</object>
@@ -2158,11 +2132,6 @@
 						<reference key="parent" ref="988643381"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">969</int>
-						<reference key="object" ref="951652380"/>
-						<reference key="parent" ref="7316663"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">981</int>
 						<reference key="object" ref="220869748"/>
 						<object class="NSMutableArray" key="children">
@@ -2324,7 +2293,6 @@
 					<string>963.IBPluginDependency</string>
 					<string>965.IBPluginDependency</string>
 					<string>966.IBPluginDependency</string>
-					<string>969.IBPluginDependency</string>
 					<string>978.IBPluginDependency</string>
 					<string>979.IBPluginDependency</string>
 					<string>981.IBPluginDependency</string>
@@ -2353,7 +2321,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>ImageAndTextCell</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2460,7 +2427,6 @@
 							<string>downloadReports:</string>
 							<string>downloadReviews:</string>
 							<string>importReports:</string>
-							<string>license:</string>
 							<string>preferences:</string>
 							<string>print:</string>
 							<string>syncDropbox:</string>
@@ -2469,7 +2435,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2493,7 +2458,6 @@
 							<string>downloadReports:</string>
 							<string>downloadReviews:</string>
 							<string>importReports:</string>
-							<string>license:</string>
 							<string>preferences:</string>
 							<string>print:</string>
 							<string>syncDropbox:</string>
@@ -2524,10 +2488,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">importReports:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">license:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

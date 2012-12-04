@@ -32,7 +32,8 @@
 	[defaults setObject:@"Unknown" forKey:@"Last Reviews Update Status"];
     
 	NSMutableArray *reviews = [[NSMutableArray alloc] init];
-	
+	NSMutableArray *ratings = [[NSMutableArray alloc] init];
+    
     NSDictionary *selectedApps = [defaults objectForKey:@"Selected Apps"];
     NSMutableArray *applications = [[NSMutableArray alloc] init];
     
@@ -51,6 +52,7 @@
 		PSApplication *application = [applications objectAtIndex:i];
 
 		[reviews removeAllObjects];
+        [ratings removeAllObjects];
         
 		for (int i = 0; i < [data.stores count]; i++) {
 			if (isCanceled) {
@@ -64,17 +66,18 @@
 
 			[self changePhaseWithMessage:[NSString stringWithFormat:@"%@ - %@", application.name, store.name]];
 
-            NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/customerReviews?update=1&id=%ld&displayable-kind=11", application.identifier];
+            NSString *url = [NSString stringWithFormat:@"http://client-api.itunes.apple.com/WebObjects/MZStore.woa/wa/customerReviews?update=1&id=%ld&displayable-kind=11", application.identifier];
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-            
+
             request.timeOutSeconds = 60;
             request.shouldRedirect = NO;
             
-            [request addRequestHeader:@"User-Agent" value:@"iTunes/10.1.1 (Macintosh; Intel Mac OS X 10.6.6) AppleWebKit/533.19.4"];
-            [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,12", store.identifier]];
+            [request addRequestHeader:@"User-Agent" value:@"iTunes/11.0 (Macintosh; OS X 10.7.4) AppleWebKit/534.56.5"];
+            [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,17", store.identifier]];
             [request addRequestHeader:@"X-Apple-Partner" value:@"origin.0"];
             [request addRequestHeader:@"X-Apple-Connection-Type" value:@"WiFi"];
-            
+            [request addRequestHeader:@"X-Apple-Tz" value:@"14400"];
+
             [request startSynchronous];
             
             NSError *error = [request error];
@@ -92,72 +95,22 @@
 				return;
 			}
             
-            NSString *response = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
+            id response = [request.responseString JSONValue];
 
-            int numberOfPages = [[response stringByMatching:@"total-number-of-pages='(.*)?'" capture:1] intValue];
-            
-            for (int i = 0; i < numberOfPages; i++) {
-                NSString *response = [self downloadReviewsForApplication:application store:store page:i + 1];
-                
-                if (response == nil) {
-                    [self stopProgressAnimation];
-                    [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"Parsing Error" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
-                    
-                    [defaults setObject:@"Parsing Error" forKey:@"Last Reviews Update Status"];
-                    
-                    isCanceled = YES;
-                    
-                    [pool release];
-                    
-                    return;
-                }
-                
-                NSArray *items = [response componentsSeparatedByString:@"class=\"customer-review\">"];
-                
-                for (int i = 1; i < [items count]; i++) {
-                    NSArray *lines = [[items objectAtIndex:i] componentsSeparatedByString:@"\n"];
-                    NSString *item = @"";
-                    
-                    for (NSString *line in lines) {
-                        line = [line stringByRemovingNewLinesAndWhitespace];
-                        
-                        if ([line length] > 0) {
-                            item = [item stringByAppendingString:line];
-                        }
-                    }
-
-                    item = [item stringByRemovingNewLinesAndWhitespace];
-
-                    @try {                        
-                        NSString *title = [item stringByMatching:@"<span class=\"customerReviewTitle\">(.*?)</span>" capture:1];
-                        NSString *text = [item stringByMatching:@"<p class=\"content.*?\">(.*?)</p>" capture:1];
-                        NSString *name = [item stringByMatching:@"<a href='.*' class=\"reviewer\">(.*?)</a>" capture:1];
-                        NSInteger rating = [[item componentsSeparatedByString:@"\"rating-star\""] count] - 1;
-
-                        NSString *temp = [item stringByMatching:@"<span class=\"user-info\">.*?</a>(.*?)</span>" capture:1];
-                        
-                        NSArray *fields = [temp componentsSeparatedByString:@"-"];
-                        NSString *version = [[fields objectAtIndex:1] stringByMatching:@"([0-9].*)" capture:1];
-                        
-                        NSString *dateStr = @"";
-                        
-                        for (int i = 2; i < [fields count]; i++) {
-                            dateStr = [dateStr stringByAppendingFormat:@"%@-", [[fields objectAtIndex:i] stringByRemovingNewLinesAndWhitespace]];
-                        }
-                        
-                        dateStr = [dateStr substringToIndex:[dateStr length] - 1];
-
+            if (response) {
+                if ([[response objectForKey:@"totalNumberOfReviews"] intValue] > 0) {
+                    for (id item in [response objectForKey:@"userReviewList"]) {
                         PSReview *review = [[PSReview alloc] initWithPrimaryKey:-1 database:_db];
                         
-                        review.title = [title stringByRemovingNewLinesAndWhitespace];
-                        review.text = [text stringByRemovingNewLinesAndWhitespace];
-                        review.name = [name stringByRemovingNewLinesAndWhitespace];
-                        review.rating = rating;
-                        review.version = [version stringByRemovingNewLinesAndWhitespace];
+                        review.title = [[item objectForKey:@"title"] stringByRemovingNewLinesAndWhitespace];
+                        review.text = [[item objectForKey:@"body"] stringByRemovingNewLinesAndWhitespace];
+                        review.name = [[item objectForKey:@"name"] stringByRemovingNewLinesAndWhitespace];
+                        review.rating = [[item objectForKey:@"rating"] intValue];
+                        review.version = @"";
                         review.store = store;
                         review.application = application;
-                        review.date = [self dateFromString:dateStr];
-
+                        review.date = [self dateFromString:[item objectForKey:@"date"]];
+                        
                         NSString *sql = @"SELECT COUNT(*) FROM reviews WHERE store_id = ? AND application_id = ? AND title = ? AND name = ?";
                         sqlite3_stmt *statement;
                         int count = 0;
@@ -166,9 +119,9 @@
                             sqlite3_bind_int(statement, 1, store.identifier);
                             sqlite3_bind_int(statement, 2, application.identifier);
                             sqlite3_bind_text(statement, 3, [review.title UTF8String], -1, SQLITE_TRANSIENT);
-                            sqlite3_bind_text(statement, 4, [review.name UTF8String], -1, SQLITE_TRANSIENT);                    
+                            sqlite3_bind_text(statement, 4, [review.name UTF8String], -1, SQLITE_TRANSIENT);
                             
-                            if (sqlite3_step(statement) == SQLITE_ROW) {				
+                            if (sqlite3_step(statement) == SQLITE_ROW) {
                                 count = sqlite3_column_int(statement, 0);
                             }
                         }
@@ -182,24 +135,37 @@
                         [reviews addObject:review];
                         [review release];
                     }
-                    @catch (NSException *exception) {
-                        //
-                    }
-                    @finally {
-                        //
-                    }            
+                }
+                
+                if ([response objectForKey:@"ratingCountList"]) {
+                    PSRating *rating = [[PSRating alloc] initWithPrimaryKey:-1 database:_db];
+                    
+                    rating.stars5 = [[[response objectForKey:@"ratingCountList"] objectAtIndex:4] intValue];
+                    rating.stars4 = [[[response objectForKey:@"ratingCountList"] objectAtIndex:3] intValue];
+                    rating.stars3 = [[[response objectForKey:@"ratingCountList"] objectAtIndex:2] intValue];
+                    rating.stars2 = [[[response objectForKey:@"ratingCountList"] objectAtIndex:1] intValue];
+                    rating.stars1 = [[[response objectForKey:@"ratingCountList"] objectAtIndex:0] intValue];
+                    rating.average = [NSNumber numberWithFloat:[[response objectForKey:@"ratingAverage"] floatValue]];
+                    rating.store = store;
+                    rating.application = application;
+                    rating.date = [NSDate date];
+                    
+                    [ratings addObject:rating];
+                    [rating release];
                 }
             }
-					
+ 					
 			[self incrementProgressIndicatorBy:1.0];
 			
 			[pool release];
 		}
         
         [self importReviews:reviews];
+        [self importRatings:ratings];
 	}
     
 	[reviews release];
+    [ratings release];
     [applications release];
     
     if (!isCanceled) {
@@ -207,31 +173,6 @@
     }
     
     [defaults synchronize];
-}
-
-- (NSString *)downloadReviewsForApplication:(PSApplication *)application store:(PSStore *)store page:(NSInteger)page {
-    NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/customerReviews?update=1&id=%ld&displayable-kind=11&page=%ld&sort=1", application.identifier, page];    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-    
-    request.timeOutSeconds = 60;
-    request.shouldRedirect = NO;
-    
-    [request addRequestHeader:@"User-Agent" value:@"iTunes/10.1.1 (Macintosh; Intel Mac OS X 10.6.6) AppleWebKit/533.19.4"];
-    [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,12", store.identifier]];
-    [request addRequestHeader:@"X-Apple-Partner" value:@"origin.0"];
-    [request addRequestHeader:@"X-Apple-Connection-Type" value:@"WiFi"];
-    
-    [request startSynchronous];
-    
-    NSError *error = [request error];
-    
-    if (error) {        
-        return nil;
-    }
-    
-    NSString *result = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
-    
-    return [result autorelease];
 }
 
 - (void)importReviews:(NSArray *)reviews {
@@ -258,6 +199,19 @@
 	sqlite3_prepare_v2(_db, [sql UTF8String], -1, &statement, NULL);
 	sqlite3_step(statement);
 	sqlite3_finalize(statement);
+}
+
+- (void)importRatings:(NSArray *)ratings {
+	if (ratings == nil || [ratings count] == 0) {
+		return;
+	}
+	
+	PSRating *rating = [ratings lastObject];
+    [rating deleteRatingsForApplication];
+	
+	for (PSRating *rating in ratings) {
+		[rating save];
+	}
 }
 
 - (NSDate *)dateFromString:(NSString *)str {
