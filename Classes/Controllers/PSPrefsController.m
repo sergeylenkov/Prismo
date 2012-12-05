@@ -181,32 +181,13 @@
             dateString = [PSUtilites localizedShortDateWithFullMonth:date];
         }
         
-		[lastReviewsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last reviews update: %@ at %@", dateString, [date timeRepresentation]]];
+		[lastReviewsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last update: %@ at %@", dateString, [date timeRepresentation]]];
 	}
 	
 	if ([defaults objectForKey:@"Last Reviews Update Status"] == nil) {
 		[lastReviewsUpdateStatusField setTitleWithMnemonic:@"Last update status: Unknown"];
 	} else {
 		[lastReviewsUpdateStatusField setTitleWithMnemonic:[NSString stringWithFormat:@"Last update status: %@", [defaults objectForKey:@"Last Reviews Update Status"]]];
-	}
-    
-    if ([defaults objectForKey:@"Last Ratings Update"] == nil) {
-		[lastRatingsUpdateField setTitleWithMnemonic:@"Last ratings update: Never"];
-	} else {
-		NSDate *date = [defaults objectForKey:@"Last Ratings Update"];
-        NSString *dateString = [PSUtilites localizedMediumDateWithFullMonth:date];
-        
-        if ([date year] == [[NSDate date] year]) {
-            dateString = [PSUtilites localizedShortDateWithFullMonth:date];
-        }
-        
-		[lastRatingsUpdateField setTitleWithMnemonic:[NSString stringWithFormat:@"Last ratings update: %@ at %@", dateString, [date timeRepresentation]]];
-	}
-	
-	if ([defaults objectForKey:@"Last Ratings Update Status"] == nil) {
-		[lastRatingsUpdateStatusField setTitleWithMnemonic:@"Last update status: Unknown"];
-	} else {
-		[lastRatingsUpdateStatusField setTitleWithMnemonic:[NSString stringWithFormat:@"Last update status: %@", [defaults objectForKey:@"Last Ratings Update Status"]]];
 	}
     
 	[currencyButton selectItemAtIndex:[[defaults objectForKey:@"Currency"] intValue]];

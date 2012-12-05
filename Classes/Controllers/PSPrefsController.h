@@ -39,8 +39,6 @@
 	IBOutlet NSTextField *lastRanksUpdateStatusField;
     IBOutlet NSTextField *lastReviewsUpdateField;
 	IBOutlet NSTextField *lastReviewsUpdateStatusField;
-    IBOutlet NSTextField *lastRatingsUpdateField;
-	IBOutlet NSTextField *lastRatingsUpdateStatusField;
 	IBOutlet PSAccountsController *accountsController;
     IBOutlet PSTopsController *topsController;
     IBOutlet PSAppsController *appsController;

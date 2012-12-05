@@ -61,11 +61,11 @@
     NSString *csv = @"";
     
     if ([changeViewButton selectedSegment] == 0) {
-        csv = @"\"DATE\",\"STARS\",\"VERSION\",\"STORE\",\"NICK\",\"TITLE\",\"REVIEW\"\n";
+        csv = @"\"DATE\",\"STARS\",\"STORE\",\"NICK\",\"TITLE\",\"REVIEW\"\n";
 	
         for (PSReview *review in reviewsController.reviews) {
             NSString *text = [review.text stringByReplacingOccurrencesOfString:@"\"" withString:@"'"];
-            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%ld\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"\n", [dateFormatter stringFromDate:review.date], review.rating, review.version, review.store.name, review.name, review.title, text];
+            NSString *line = [NSString stringWithFormat:@"\"%@\",\"%ld\",\"%@\",\"%@\",\"%@\",\"%@\"\n", [dateFormatter stringFromDate:review.date], review.rating, review.store.name, review.name, review.title, text];
             csv = [csv stringByAppendingString:line];
         }
     } else {

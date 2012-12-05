@@ -87,10 +87,6 @@
 		return review.title;
 	}
 	
-	if ([[tableColumn identifier] isEqualToString:@"version"]) {
-		return review.version;
-	}
-	
 	if ([[tableColumn identifier] isEqualToString:@"store"]) {
 		return review.store.name;
 	}
@@ -135,10 +131,6 @@
 	
 	if ([identifier isEqualToString:@"title"]) {
 		[_reviews sortUsingSelector:@selector(compareTitle:)];		
-	}
-	
-	if ([identifier isEqualToString:@"version"]) {
-		[_reviews sortUsingSelector:@selector(compareVersion:)];		
 	}
 	
 	if ([identifier isEqualToString:@"store"]) {

@@ -38,7 +38,7 @@
     PSStore *store = [data.stores objectAtIndex:row];
     
 	if ([[tableColumn identifier] isEqualToString:@"name"]) {
-        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%d", store.identifier]] boolValue];
+        BOOL selected = [[selection objectForKey:[NSString stringWithFormat:@"%ld", store.identifier]] boolValue];
         
 		NSButtonCell *cell = [tableColumn dataCell];
         
@@ -59,9 +59,9 @@
 		NSNumber *value = [NSNumber numberWithBool:[object boolValue]];
         
         if ([value boolValue]) {
-            [selection setObject:value forKey:[NSString stringWithFormat:@"%d", store.identifier]];
+            [selection setObject:value forKey:[NSString stringWithFormat:@"%ld", store.identifier]];
         } else {
-            [selection removeObjectForKey:[NSString stringWithFormat:@"%d", store.identifier]];
+            [selection removeObjectForKey:[NSString stringWithFormat:@"%ld", store.identifier]];
         }
         
         [defaults setObject:selection forKey:@"Selected Stores"];

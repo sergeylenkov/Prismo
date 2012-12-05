@@ -111,24 +111,24 @@
             
             NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?id=%ld&genreId=%ld&popId=%ld", top.category.identifier, top.category.genre, top.pop.identifier]];
-        
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?id=%ld&popId=%ld&genreId=%ld&mt=12", top.category.identifier, top.pop.identifier, top.category.genre]];
+            
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
         
             request.timeOutSeconds = 60;
             request.shouldRedirect = NO;
         
             if (top.category.type == 0 || top.category.type == 1) {
-                [request addRequestHeader:@"User-Agent" value:@"iTunes/10.1.2 (Macintosh; Intel Mac OS X 10.6.6) AppleWebKit/533.19.4"];
+                [request addRequestHeader:@"User-Agent" value:@"iTunes/11.0 (Macintosh; OS X 10.7.4) AppleWebKit/534.56.5"];
                 [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,12", top.store.identifier]];
             } else {
-                [request addRequestHeader:@"User-Agent" value:@"MacAppStore/1.0 (Macintosh; U; Intel Mac OS X 10.6.6; en) AppleWebKit/533.19.4"];
+                [request addRequestHeader:@"User-Agent" value:@"MacAppStore/1.1.2 (Macintosh; U; Intel Mac OS X 10.7.5; en) AppleWebKit/534.56.5"];
                 [request addRequestHeader:@"X-Apple-Store-Front" value:[NSString stringWithFormat:@"%ld,13", top.store.identifier]];
             }
         
             [request addRequestHeader:@"X-Apple-Partner" value:@"origin.0"];
             [request addRequestHeader:@"X-Apple-Connection-Type" value:@"WiFi"];
-        
+            
             [request startSynchronous];
         
             NSError *error = [request error];
@@ -144,8 +144,8 @@
                 return;
             }
         
-            NSString *response = [[NSString alloc] initWithData:[request responseData] encoding:NSUTF8StringEncoding];
-        
+            NSString *response = request.responseString;
+
             NSArray *items = [response componentsSeparatedByString:@"<div rating-software="];
         
             for (int i = 0; i < [items count]; i++) {
@@ -164,7 +164,7 @@
                 for (PSApplication *application in data.applications) {
                     if ([item isMatchedByRegex:[NSString stringWithFormat:@"adam-id=\"%ld\"", application.identifier]]) {
                         NSString *place = [item stringByMatching:@"<span class=\"index\">.*?([0-9]+).*</span>" capture:1];
-                    
+
                         if (place != nil) {
                             PSRank *rank = [[PSRank alloc] initWithPrimaryKey:-1 database:_db];
                         
@@ -182,7 +182,6 @@
                 }
             }
             
-            [response release];
             [pool release];
         }
         

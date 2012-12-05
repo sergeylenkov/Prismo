@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <Growl/GrowlApplicationBridge.h>
 #import "ASIHTTPRequest.h"
-#import "RegexKitLite.h"
 #import "SBJson.h"
 #import "NSString+HTML.h"
 #import "PSApplication.h"

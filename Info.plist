@@ -44,9 +44,9 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string></string>
+	<string>http://prismoapp.com/update/appcast.php</string>
 	<key>SUPublicDSAKeyFile</key>
-	<string></string>
+	<string>dsa_pub.pem</string>
 	<key>SUEnableSystemProfiling</key>
 	<true/>
 </dict>
