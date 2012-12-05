@@ -36,7 +36,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.6</string>
+	<string>1.6.1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009-2013 Sergey Lenkov</string>
 	<key>NSMainNibFile</key>
@@ -44,9 +44,9 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://prismoapp.com/update/appcast.php</string>
+	<string></string>
 	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
+	<string></string>
 	<key>SUEnableSystemProfiling</key>
 	<true/>
 </dict>
