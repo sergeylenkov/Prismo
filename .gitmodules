@@ -1,0 +1,18 @@
+[submodule "External/sergeylenkov-Utilites"]
+	path = External/sergeylenkov-Utilites
+	url = https://github.com/sergeylenkov/Utilites
+[submodule "External/PTKeychain"]
+	path = External/PTKeychain
+	url = https://github.com/sergeylenkov/PTKeychain
+[submodule "External/ASIHTTP"]
+	path = External/ASIHTTP
+	url = https://github.com/pokeb/asi-http-request.git
+[submodule "External/RegexKitLite"]
+	path = External/RegexKitLite
+	url = https://github.com/JanX2/RegexKitLite.git
+[submodule "External/SFBPopovers"]
+	path = External/SFBPopovers
+	url = https://github.com/sbooth/SFBPopovers.git
+[submodule "External/SBJson"]
+	path = External/SBJson
+	url = https://github.com/stig/json-framework.git

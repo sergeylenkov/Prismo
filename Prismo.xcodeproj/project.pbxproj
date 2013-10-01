@@ -384,7 +384,6 @@
 		A59C8E6814A9F19700237341 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A59C8E6714A9F19700237341 /* libz.dylib */; };
 		A5A2CA471221746C00E2A528 /* Ranks32.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2CA441221746C00E2A528 /* Ranks32.png */; };
 		A5A2CA481221746C00E2A528 /* Reports32.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A2CA451221746C00E2A528 /* Reports32.png */; };
-		A5A3B6CE12CCEECA00503208 /* PTTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A3B6CC12CCEECA00503208 /* PTTextFieldCell.m */; };
 		A5A3B6D912CCEEDE00503208 /* PSRankParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A3B6D312CCEEDE00503208 /* PSRankParser.m */; };
 		A5A3B6DA12CCEEDE00503208 /* PSReportDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A3B6D512CCEEDE00503208 /* PSReportDownloader.m */; };
 		A5A3B6DB12CCEEDE00503208 /* PSReviewParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A3B6D712CCEEDE00503208 /* PSReviewParser.m */; };
@@ -494,10 +493,10 @@
 		A51E6CFE143836D1006B5BD7 /* CompareLion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CompareLion.png; path = Resources/Images/CompareLion.png; sourceTree = "<group>"; };
 		A524078D0FCD05800070D58F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		A524078E0FCD05800070D58F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		A525D3951403866B00BCC471 /* OAuthConsumer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthConsumer.framework; path = ../../Frameworks/OAuthConsumer.framework; sourceTree = "<group>"; };
+		A525D3951403866B00BCC471 /* OAuthConsumer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthConsumer.framework; path = Frameworks/OAuthConsumer.framework; sourceTree = "<group>"; };
 		A53A293A1555894300334AC7 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		A53A293B1555894300334AC7 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
-		A53A294015558A9100334AC7 /* Yuba.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yuba.framework; path = ../../Frameworks/Yuba.framework; sourceTree = "<group>"; };
+		A53A294015558A9100334AC7 /* Yuba.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yuba.framework; path = Frameworks/Yuba.framework; sourceTree = "<group>"; };
 		A53B06A81393D87F0063036D /* PSTopsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTopsController.h; sourceTree = "<group>"; };
 		A53B06A91393D87F0063036D /* PSTopsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTopsController.m; sourceTree = "<group>"; };
 		A53B06AB1393D9F70063036D /* PSTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTop.h; sourceTree = "<group>"; };
@@ -510,12 +509,12 @@
 		A53B06C81394223C0063036D /* Import.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Import.png; path = Resources/Images/Import.png; sourceTree = "<group>"; };
 		A5494DE713DD377D00741EAF /* PSSyncData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSyncData.h; sourceTree = "<group>"; };
 		A5494DE813DD377D00741EAF /* PSSyncData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSyncData.m; sourceTree = "<group>"; };
-		A54DCEFC15260D9E00797D01 /* NSApplication+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSApplication+Utilites.h"; path = "../../Shared/Utilites/NSApplication+Utilites.h"; sourceTree = "<group>"; };
-		A54DCEFD15260D9E00797D01 /* NSApplication+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+Utilites.m"; path = "../../Shared/Utilites/NSApplication+Utilites.m"; sourceTree = "<group>"; };
-		A54DCEFE15260D9E00797D01 /* NSDate+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Utilites.h"; path = "../../Shared/Utilites/NSDate+Utilites.h"; sourceTree = "<group>"; };
-		A54DCEFF15260D9E00797D01 /* NSDate+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utilites.m"; path = "../../Shared/Utilites/NSDate+Utilites.m"; sourceTree = "<group>"; };
-		A54DCF0015260D9E00797D01 /* NSMutableArray+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Utilites.h"; path = "../../Shared/Utilites/NSMutableArray+Utilites.h"; sourceTree = "<group>"; };
-		A54DCF0115260D9E00797D01 /* NSMutableArray+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Utilites.m"; path = "../../Shared/Utilites/NSMutableArray+Utilites.m"; sourceTree = "<group>"; };
+		A54DCEFC15260D9E00797D01 /* NSApplication+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSApplication+Utilites.h"; path = "External/sergeylenkov-Utilites/NSApplication+Utilites.h"; sourceTree = "<group>"; };
+		A54DCEFD15260D9E00797D01 /* NSApplication+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+Utilites.m"; path = "External/sergeylenkov-Utilites/NSApplication+Utilites.m"; sourceTree = "<group>"; };
+		A54DCEFE15260D9E00797D01 /* NSDate+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Utilites.h"; path = "External/sergeylenkov-Utilites/NSDate+Utilites.h"; sourceTree = "<group>"; };
+		A54DCEFF15260D9E00797D01 /* NSDate+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utilites.m"; path = "External/sergeylenkov-Utilites/NSDate+Utilites.m"; sourceTree = "<group>"; };
+		A54DCF0015260D9E00797D01 /* NSMutableArray+Utilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Utilites.h"; path = "External/sergeylenkov-Utilites/NSMutableArray+Utilites.h"; sourceTree = "<group>"; };
+		A54DCF0115260D9E00797D01 /* NSMutableArray+Utilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Utilites.m"; path = "External/sergeylenkov-Utilites/NSMutableArray+Utilites.m"; sourceTree = "<group>"; };
 		A54E4590155673AE00C7A79C /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
 		A54E4591155673AE00C7A79C /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		A54E45941556745400C7A79C /* HashValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashValue.h; sourceTree = "<group>"; };
@@ -613,7 +612,7 @@
 		A57E403A0FEAA73900AEC5BE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		A583B64F15135DC200C3AFE0 /* PSStoresController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStoresController.h; sourceTree = "<group>"; };
 		A583B65015135DC200C3AFE0 /* PSStoresController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStoresController.m; sourceTree = "<group>"; };
-		A584560A136C619400415CD4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ../../Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		A584560A136C619400415CD4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		A5885CF2139A51DE00ECA141 /* PSOutlineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSOutlineItem.h; sourceTree = "<group>"; };
 		A5885CF3139A51DE00ECA141 /* PSOutlineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSOutlineItem.m; sourceTree = "<group>"; };
 		A5885CFA139B75B100ECA141 /* ad.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ad.gif; sourceTree = "<group>"; };
@@ -863,7 +862,7 @@
 		A5885DEE139B75B100ECA141 /* za.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = za.gif; sourceTree = "<group>"; };
 		A5885DEF139B75B100ECA141 /* zm.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zm.gif; sourceTree = "<group>"; };
 		A5885DF0139B75B100ECA141 /* zw.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zw.gif; sourceTree = "<group>"; };
-		A58998F214E7F01700E55B81 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "../../Frameworks/Growl-1.3.1-SDK/Framework/Growl.framework"; sourceTree = "<group>"; };
+		A58998F214E7F01700E55B81 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		A5969EBD10F482490059FECC /* Dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dashboard.png; path = Resources/Images/Dashboard.png; sourceTree = "<group>"; };
 		A5969EBF10F482490059FECC /* Earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Earth.png; path = Resources/Images/Earth.png; sourceTree = "<group>"; };
 		A5969EC210F482490059FECC /* Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Down.png; path = Resources/Images/Down.png; sourceTree = "<group>"; };
@@ -905,8 +904,6 @@
 		A59C8E6714A9F19700237341 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A5A2CA441221746C00E2A528 /* Ranks32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ranks32.png; path = Resources/Images/Ranks32.png; sourceTree = "<group>"; };
 		A5A2CA451221746C00E2A528 /* Reports32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reports32.png; path = Resources/Images/Reports32.png; sourceTree = "<group>"; };
-		A5A3B6CB12CCEECA00503208 /* PTTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTTextFieldCell.h; path = ../../Shared/Views/PTTextFieldCell.h; sourceTree = SOURCE_ROOT; };
-		A5A3B6CC12CCEECA00503208 /* PTTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTTextFieldCell.m; path = ../../Shared/Views/PTTextFieldCell.m; sourceTree = SOURCE_ROOT; };
 		A5A3B6D212CCEEDE00503208 /* PSRankParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRankParser.h; sourceTree = "<group>"; };
 		A5A3B6D312CCEEDE00503208 /* PSRankParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRankParser.m; sourceTree = "<group>"; };
 		A5A3B6D412CCEEDE00503208 /* PSReportDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSReportDownloader.h; sourceTree = "<group>"; };
@@ -1122,7 +1119,7 @@
 				A510CE9E166E8F4A00E602D6 /* SBJsonWriter.m */,
 			);
 			name = JSON;
-			path = ../../Shared/JSON;
+			path = External/SBJson/Classes;
 			sourceTree = "<group>";
 		};
 		A52412980FCFDCD30070D58F /* Images */ = {
@@ -1290,8 +1287,6 @@
 			children = (
 				A54E4590155673AE00C7A79C /* ImageAndTextCell.h */,
 				A54E4591155673AE00C7A79C /* ImageAndTextCell.m */,
-				A5A3B6CB12CCEECA00503208 /* PTTextFieldCell.h */,
-				A5A3B6CC12CCEECA00503208 /* PTTextFieldCell.m */,
 				A574E2C811DDB5FA00B13880 /* BackgroundView.h */,
 				A574E2C911DDB5FA00B13880 /* BackgroundView.m */,
 				A574E2CC11DDB5FA00B13880 /* PrefsWindow.h */,
@@ -1625,7 +1620,7 @@
 				A59B9401125B5A9700FB1B6F /* ASIProgressDelegate.h */,
 			);
 			name = ASIHTTP;
-			path = ../../Shared/ASIHTTP;
+			path = External/ASIHTTP/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		A59B945B125B5A9800FB1B6F /* RegexKitLite */ = {
@@ -1635,7 +1630,7 @@
 				A59B945D125B5A9800FB1B6F /* RegexKitLite.m */,
 			);
 			name = RegexKitLite;
-			path = ../../Shared/RegexKitLite;
+			path = External/RegexKitLite;
 			sourceTree = SOURCE_ROOT;
 		};
 		A59C8DA114A4859100237341 /* Preferences */ = {
@@ -1714,7 +1709,7 @@
 				A5C683D113D3182100DE9448 /* PTKeychain.m */,
 			);
 			name = PTKeychain;
-			path = ../../Shared/PTKeychain;
+			path = External/PTKeychain;
 			sourceTree = "<group>";
 		};
 		A5DCBEAA1494927000445050 /* SFBPopovers */ = {
@@ -1728,7 +1723,7 @@
 				A5DCBEB01494927100445050 /* SFBPopoverWindowFrame.m */,
 			);
 			name = SFBPopovers;
-			path = ../../Shared/SFBPopovers;
+			path = External/SFBPopovers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2154,7 +2149,6 @@
 				A59B9467125B5A9800FB1B6F /* ASIInputStream.m in Sources */,
 				A59B9468125B5A9800FB1B6F /* ASINetworkQueue.m in Sources */,
 				A59B948E125B5A9800FB1B6F /* RegexKitLite.m in Sources */,
-				A5A3B6CE12CCEECA00503208 /* PTTextFieldCell.m in Sources */,
 				A5A3B6D912CCEEDE00503208 /* PSRankParser.m in Sources */,
 				A5A3B6DA12CCEEDE00503208 /* PSReportDownloader.m in Sources */,
 				A5A3B6DB12CCEEDE00503208 /* PSReviewParser.m in Sources */,
@@ -2242,9 +2236,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/..\"",
-					"\"$(SRCROOT)/../../Frameworks\"",
-					"\"$(SRCROOT)/../../Frameworks/Growl-1.3.1-SDK/Framework\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -2267,9 +2259,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/..\"",
-					"\"$(SRCROOT)/../../Frameworks\"",
-					"\"$(SRCROOT)/../../Frameworks/Growl-1.3.1-SDK/Framework\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
