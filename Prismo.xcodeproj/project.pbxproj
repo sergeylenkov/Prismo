@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		3DA167F118253CF400CB0F95 /* NSCharacterSet+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -455,6 +456,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* Prismo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prismo_Prefix.pch; sourceTree = "<group>"; };
+		3DA167EF18253CF400CB0F95 /* NSCharacterSet+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+HTML.h"; path = "Classes/Utilites/NSCharacterSet+HTML.h"; sourceTree = "<group>"; };
+		3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTML.m"; path = "Classes/Utilites/NSCharacterSet+HTML.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Prismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5070121141951B1000B5103 /* HeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeaderBackground.png; path = Resources/Images/HeaderBackground.png; sourceTree = "<group>"; };
@@ -1163,6 +1166,8 @@
 				A54E4597155674DD00C7A79C /* GTMDefines.h */,
 				A54E4598155674DD00C7A79C /* GTMNSString+HTML.h */,
 				A54E4599155674DD00C7A79C /* GTMNSString+HTML.m */,
+				3DA167EF18253CF400CB0F95 /* NSCharacterSet+HTML.h */,
+				3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */,
 				A54E459A155674DD00C7A79C /* NSData+GZip.h */,
 				A54E459B155674DD00C7A79C /* NSData+GZip.m */,
 				A54E459C155674DD00C7A79C /* NSString+HTML.h */,
@@ -2187,6 +2192,7 @@
 				A54E4592155673AE00C7A79C /* ImageAndTextCell.m in Sources */,
 				A54E45961556745400C7A79C /* HashValue.m in Sources */,
 				A54E459E155674DD00C7A79C /* GTMNSString+HTML.m in Sources */,
+				3DA167F118253CF400CB0F95 /* NSCharacterSet+HTML.m in Sources */,
 				A54E459F155674DD00C7A79C /* NSData+GZip.m in Sources */,
 				A54E45A0155674DD00C7A79C /* NSString+HTML.m in Sources */,
 				A54E45A715567A7800C7A79C /* PSData.m in Sources */,
