@@ -50,7 +50,7 @@
                         <segmentedControl verticalHuggingPriority="750" id="42">
                             <rect key="frame" x="346" y="4" width="207" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="43">
+                            <segmentedCell key="cell" alignment="left" style="automatic" trackingMode="selectOne" id="43">
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment label="Map" width="100" selected="YES"/>

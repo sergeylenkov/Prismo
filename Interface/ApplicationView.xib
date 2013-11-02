@@ -71,7 +71,7 @@
                         <segmentedControl verticalHuggingPriority="750" id="61">
                             <rect key="frame" x="245" y="4" width="409" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="62">
+                            <segmentedCell key="cell" alignment="left" style="automatic" trackingMode="selectOne" id="62">
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment label="Info" width="100" selected="YES"/>

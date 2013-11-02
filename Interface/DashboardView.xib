@@ -44,7 +44,7 @@
                         <segmentedControl verticalHuggingPriority="750" id="63" userLabel="Segmented Control - Graphs, Details">
                             <rect key="frame" x="346" y="4" width="207" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="64">
+                            <segmentedCell key="cell" alignment="left" style="automatic" trackingMode="selectOne" id="64">
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment label="Graphs" width="100" selected="YES"/>
