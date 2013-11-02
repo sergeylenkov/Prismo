@@ -22,3 +22,6 @@
 [submodule "External/OAuthConsumer"]
 	path = External/OAuthConsumer
 	url = https://github.com/JanX2/oauth-objc.git
+[submodule "External/Sparkle"]
+	path = External/Sparkle
+	url = git@github.com:JanX2/Sparkle.git

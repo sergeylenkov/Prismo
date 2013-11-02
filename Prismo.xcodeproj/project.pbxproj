@@ -13,6 +13,8 @@
 		3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA167F71825435800CB0F95 /* Yuba.framework */; };
 		3DFE09091825533300CF291D /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE0904182552FA00CF291D /* OAuthConsumer.framework */; };
 		3DFE090A1825534200CF291D /* OAuthConsumer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE0904182552FA00CF291D /* OAuthConsumer.framework */; };
+		3DFE09271825776D00CF291D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE091C1825771700CF291D /* Sparkle.framework */; };
+		3DFE09281825777800CF291D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE091C1825771700CF291D /* Sparkle.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -106,8 +108,6 @@
 		A57E40380FEAA72900AEC5BE /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = A57E40370FEAA72900AEC5BE /* Growl Registration Ticket.growlRegDict */; };
 		A57E403D0FEAA73900AEC5BE /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A57E403A0FEAA73900AEC5BE /* dsa_pub.pem */; };
 		A583B65115135DC200C3AFE0 /* PSStoresController.m in Sources */ = {isa = PBXBuildFile; fileRef = A583B65015135DC200C3AFE0 /* PSStoresController.m */; };
-		A584560B136C619400415CD4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584560A136C619400415CD4 /* Sparkle.framework */; };
-		A584560C136C619F00415CD4 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A584560A136C619400415CD4 /* Sparkle.framework */; };
 		A5885CF4139A51DE00ECA141 /* PSOutlineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A5885CF3139A51DE00ECA141 /* PSOutlineItem.m */; };
 		A5885DF1139B75B100ECA141 /* ad.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5885CFA139B75B100ECA141 /* ad.gif */; };
 		A5885DF2139B75B100ECA141 /* ae.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5885CFB139B75B100ECA141 /* ae.gif */; };
@@ -466,6 +466,48 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = OAuthConsumer;
 		};
+		3DFE091B1825771700CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
+		3DFE091D1825771700CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 61B5F90209C4CEE200B25A18;
+			remoteInfo = "Sparkle Test App";
+		};
+		3DFE091F1825771700CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 612279D90DB5470200AB99EA;
+			remoteInfo = "Sparkle Unit Tests";
+		};
+		3DFE09211825771700CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06E8D00FD68C7C005AE3F6;
+			remoteInfo = BinaryDelta;
+		};
+		3DFE09231825771700CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55C14BB7136EEF1500649790;
+			remoteInfo = finish_installation;
+		};
+		3DFE09251825776600CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -475,9 +517,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3DFE09281825777800CF291D /* Sparkle.framework in Copy Frameworks */,
 				3DFE090A1825534200CF291D /* OAuthConsumer.framework in Copy Frameworks */,
 				3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */,
-				A584560C136C619F00415CD4 /* Sparkle.framework in Copy Frameworks */,
 				A58998F414E7F07400E55B81 /* Growl.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -498,6 +540,7 @@
 		3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTML.m"; path = "Classes/Utilites/NSCharacterSet+HTML.m"; sourceTree = "<group>"; };
 		3DA167F21825435700CB0F95 /* Yuba.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Yuba.xcodeproj; path = External/Yuba/Yuba.xcodeproj; sourceTree = "<group>"; };
 		3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
+		3DFE09131825770D00CF291D /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = External/Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Prismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5070121141951B1000B5103 /* HeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeaderBackground.png; path = Resources/Images/HeaderBackground.png; sourceTree = "<group>"; };
@@ -653,7 +696,6 @@
 		A57E403A0FEAA73900AEC5BE /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		A583B64F15135DC200C3AFE0 /* PSStoresController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStoresController.h; sourceTree = "<group>"; };
 		A583B65015135DC200C3AFE0 /* PSStoresController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStoresController.m; sourceTree = "<group>"; };
-		A584560A136C619400415CD4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		A5885CF2139A51DE00ECA141 /* PSOutlineItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSOutlineItem.h; sourceTree = "<group>"; };
 		A5885CF3139A51DE00ECA141 /* PSOutlineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSOutlineItem.m; sourceTree = "<group>"; };
 		A5885CFA139B75B100ECA141 /* ad.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ad.gif; sourceTree = "<group>"; };
@@ -1008,11 +1050,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFE09271825776D00CF291D /* Sparkle.framework in Frameworks */,
 				3DFE09091825533300CF291D /* OAuthConsumer.framework in Frameworks */,
 				3DA167FA1825442D00CB0F95 /* Yuba.framework in Frameworks */,
 				A58998F314E7F01700E55B81 /* Growl.framework in Frameworks */,
 				A5A41F4E13A1F0AF003A470B /* QuartzCore.framework in Frameworks */,
-				A584560B136C619400415CD4 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				A5E621690FDFF02500624252 /* WebKit.framework in Frameworks */,
 				A596A8BC10F741C80059FECC /* Security.framework in Frameworks */,
@@ -1060,6 +1102,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */,
+				3DFE09131825770D00CF291D /* Sparkle.xcodeproj */,
 				3DA167F21825435700CB0F95 /* Yuba.xcodeproj */,
 				A51898871242381E003C5912 /* SystemConfiguration.framework */,
 				A5A41F4D13A1F0AF003A470B /* QuartzCore.framework */,
@@ -1069,7 +1112,6 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				A596A8BB10F741C80059FECC /* Security.framework */,
 				A58998F214E7F01700E55B81 /* Growl.framework */,
-				A584560A136C619400415CD4 /* Sparkle.framework */,
 				A5CE1FDF111702AE006B34B1 /* libsqlite3.dylib */,
 				A5129C7613503D86006DD9C4 /* libicucore.dylib */,
 				A59C8E6714A9F19700237341 /* libz.dylib */,
@@ -1143,6 +1185,18 @@
 			children = (
 				3DFE0904182552FA00CF291D /* OAuthConsumer.framework */,
 				3DFE0906182552FA00CF291D /* OAuthConsumerTestSuite.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DFE09141825770D00CF291D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE091C1825771700CF291D /* Sparkle.framework */,
+				3DFE091E1825771700CF291D /* Sparkle Test App.app */,
+				3DFE09201825771700CF291D /* Sparkle Unit Tests.octest */,
+				3DFE09221825771700CF291D /* BinaryDelta */,
+				3DFE09241825771700CF291D /* finish_installation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1801,6 +1855,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3DFE09261825776600CF291D /* PBXTargetDependency */,
 				3DFE09081825532900CF291D /* PBXTargetDependency */,
 				3DA167F91825442600CB0F95 /* PBXTargetDependency */,
 			);
@@ -1844,6 +1899,10 @@
 					ProjectRef = 3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */;
 				},
 				{
+					ProductGroup = 3DFE09141825770D00CF291D /* Products */;
+					ProjectRef = 3DFE09131825770D00CF291D /* Sparkle.xcodeproj */;
+				},
+				{
 					ProductGroup = 3DA167F31825435700CB0F95 /* Products */;
 					ProjectRef = 3DA167F21825435700CB0F95 /* Yuba.xcodeproj */;
 				},
@@ -1875,6 +1934,41 @@
 			fileType = wrapper.cfbundle;
 			path = OAuthConsumerTestSuite.octest;
 			remoteRef = 3DFE0905182552FA00CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE091C1825771700CF291D /* Sparkle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Sparkle.framework;
+			remoteRef = 3DFE091B1825771700CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE091E1825771700CF291D /* Sparkle Test App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Sparkle Test App.app";
+			remoteRef = 3DFE091D1825771700CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE09201825771700CF291D /* Sparkle Unit Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Sparkle Unit Tests.octest";
+			remoteRef = 3DFE091F1825771700CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE09221825771700CF291D /* BinaryDelta */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = BinaryDelta;
+			remoteRef = 3DFE09211825771700CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE09241825771700CF291D /* finish_installation.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = finish_installation.app;
+			remoteRef = 3DFE09231825771700CF291D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2314,6 +2408,11 @@
 			isa = PBXTargetDependency;
 			name = OAuthConsumer;
 			targetProxy = 3DFE09071825532900CF291D /* PBXContainerItemProxy */;
+		};
+		3DFE09261825776600CF291D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			targetProxy = 3DFE09251825776600CF291D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
