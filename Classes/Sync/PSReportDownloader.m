@@ -131,7 +131,7 @@
         }
         
         if (message) {
-            if ([message isEqualToString:@"Daily reports are available only for past 14 days, please enter a date within past 14 days."] || [message isEqualToString:@"There are no reports available to download for this selection."]) {
+            if ([message isEqualToString:@"Daily reports are available only for the past 14 days, please enter a date within the past 14 days."] || [message isEqualToString:@"There are no reports available to download for this selection."]) {
                 [GrowlApplicationBridge notifyWithTitle:account description:[NSString stringWithFormat:@"Report for %@ not available", dateString] notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
                 [defaults setObject:@"Report not available" forKey:@"Last Reports Check Status"];
                 
