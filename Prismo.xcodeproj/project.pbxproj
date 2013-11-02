@@ -11,6 +11,8 @@
 		3DA167F118253CF400CB0F95 /* NSCharacterSet+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */; };
 		3DA167FA1825442D00CB0F95 /* Yuba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA167F71825435800CB0F95 /* Yuba.framework */; };
 		3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA167F71825435800CB0F95 /* Yuba.framework */; };
+		3DFE09091825533300CF291D /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE0904182552FA00CF291D /* OAuthConsumer.framework */; };
+		3DFE090A1825534200CF291D /* OAuthConsumer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFE0904182552FA00CF291D /* OAuthConsumer.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -35,8 +37,6 @@
 		A51898881242381E003C5912 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51898871242381E003C5912 /* SystemConfiguration.framework */; };
 		A51E6CFF143836D1006B5BD7 /* CompareLion.png in Resources */ = {isa = PBXBuildFile; fileRef = A51E6CFE143836D1006B5BD7 /* CompareLion.png */; };
 		A524078F0FCD05800070D58F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A524078E0FCD05800070D58F /* AppDelegate.m */; };
-		A525D3961403866B00BCC471 /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A525D3951403866B00BCC471 /* OAuthConsumer.framework */; };
-		A525D3971403868100BCC471 /* OAuthConsumer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A525D3951403866B00BCC471 /* OAuthConsumer.framework */; };
 		A53A293C1555894300334AC7 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A293B1555894300334AC7 /* Database.m */; };
 		A53B06AA1393D87F0063036D /* PSTopsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06A91393D87F0063036D /* PSTopsController.m */; };
 		A53B06AD1393D9F70063036D /* PSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06AC1393D9F70063036D /* PSTop.m */; };
@@ -445,6 +445,27 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Yuba;
 		};
+		3DFE0903182552FA00CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = OAuthConsumer;
+		};
+		3DFE0905182552FA00CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCAAF0750CC95C5E00C52F82;
+			remoteInfo = OAuthConsumerTestSuite;
+		};
+		3DFE09071825532900CF291D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = OAuthConsumer;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -454,9 +475,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3DFE090A1825534200CF291D /* OAuthConsumer.framework in Copy Frameworks */,
 				3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */,
 				A584560C136C619F00415CD4 /* Sparkle.framework in Copy Frameworks */,
-				A525D3971403868100BCC471 /* OAuthConsumer.framework in Copy Frameworks */,
 				A58998F414E7F07400E55B81 /* Growl.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -476,6 +497,7 @@
 		3DA167EF18253CF400CB0F95 /* NSCharacterSet+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+HTML.h"; path = "Classes/Utilites/NSCharacterSet+HTML.h"; sourceTree = "<group>"; };
 		3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTML.m"; path = "Classes/Utilites/NSCharacterSet+HTML.m"; sourceTree = "<group>"; };
 		3DA167F21825435700CB0F95 /* Yuba.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Yuba.xcodeproj; path = External/Yuba/Yuba.xcodeproj; sourceTree = "<group>"; };
+		3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = External/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Prismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5070121141951B1000B5103 /* HeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeaderBackground.png; path = Resources/Images/HeaderBackground.png; sourceTree = "<group>"; };
@@ -514,7 +536,6 @@
 		A51E6CFE143836D1006B5BD7 /* CompareLion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CompareLion.png; path = Resources/Images/CompareLion.png; sourceTree = "<group>"; };
 		A524078D0FCD05800070D58F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		A524078E0FCD05800070D58F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		A525D3951403866B00BCC471 /* OAuthConsumer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthConsumer.framework; path = Frameworks/OAuthConsumer.framework; sourceTree = "<group>"; };
 		A53A293A1555894300334AC7 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		A53A293B1555894300334AC7 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		A53B06A81393D87F0063036D /* PSTopsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTopsController.h; sourceTree = "<group>"; };
@@ -987,9 +1008,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFE09091825533300CF291D /* OAuthConsumer.framework in Frameworks */,
 				3DA167FA1825442D00CB0F95 /* Yuba.framework in Frameworks */,
 				A58998F314E7F01700E55B81 /* Growl.framework in Frameworks */,
-				A525D3961403866B00BCC471 /* OAuthConsumer.framework in Frameworks */,
 				A5A41F4E13A1F0AF003A470B /* QuartzCore.framework in Frameworks */,
 				A584560B136C619400415CD4 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -1038,6 +1059,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */,
 				3DA167F21825435700CB0F95 /* Yuba.xcodeproj */,
 				A51898871242381E003C5912 /* SystemConfiguration.framework */,
 				A5A41F4D13A1F0AF003A470B /* QuartzCore.framework */,
@@ -1046,7 +1068,6 @@
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				A596A8BB10F741C80059FECC /* Security.framework */,
-				A525D3951403866B00BCC471 /* OAuthConsumer.framework */,
 				A58998F214E7F01700E55B81 /* Growl.framework */,
 				A584560A136C619400415CD4 /* Sparkle.framework */,
 				A5CE1FDF111702AE006B34B1 /* libsqlite3.dylib */,
@@ -1113,6 +1134,15 @@
 			isa = PBXGroup;
 			children = (
 				3DA167F71825435800CB0F95 /* Yuba.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DFE08FE182552F600CF291D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE0904182552FA00CF291D /* OAuthConsumer.framework */,
+				3DFE0906182552FA00CF291D /* OAuthConsumerTestSuite.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1771,6 +1801,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3DFE09081825532900CF291D /* PBXTargetDependency */,
 				3DA167F91825442600CB0F95 /* PBXTargetDependency */,
 			);
 			name = Prismo;
@@ -1809,6 +1840,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 3DFE08FE182552F600CF291D /* Products */;
+					ProjectRef = 3DFE08FD182552F600CF291D /* OAuthConsumer.xcodeproj */;
+				},
+				{
 					ProductGroup = 3DA167F31825435700CB0F95 /* Products */;
 					ProjectRef = 3DA167F21825435700CB0F95 /* Yuba.xcodeproj */;
 				},
@@ -1826,6 +1861,20 @@
 			fileType = wrapper.framework;
 			path = Yuba.framework;
 			remoteRef = 3DA167F61825435800CB0F95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE0904182552FA00CF291D /* OAuthConsumer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthConsumer.framework;
+			remoteRef = 3DFE0903182552FA00CF291D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFE0906182552FA00CF291D /* OAuthConsumerTestSuite.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OAuthConsumerTestSuite.octest;
+			remoteRef = 3DFE0905182552FA00CF291D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2260,6 +2309,11 @@
 			isa = PBXTargetDependency;
 			name = Yuba;
 			targetProxy = 3DA167F81825442600CB0F95 /* PBXContainerItemProxy */;
+		};
+		3DFE09081825532900CF291D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthConsumer;
+			targetProxy = 3DFE09071825532900CF291D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

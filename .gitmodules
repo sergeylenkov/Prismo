@@ -19,3 +19,6 @@
 [submodule "External/Yuba"]
 	path = External/Yuba
 	url = https://github.com/janx2/Yuba.git
+[submodule "External/OAuthConsumer"]
+	path = External/OAuthConsumer
+	url = https://github.com/JanX2/oauth-objc.git
