@@ -40,11 +40,10 @@
 	static dispatch_once_t onceToken;
 	
 	dispatch_once(&onceToken, ^{
-		_characterSet = [[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@" \t\n\r%C%C%C%C",
-																			 (unichar)0x0085,
-																			 (unichar)0x000C,
-																			 (unichar)0x2028,
-																			 (unichar)0x2029]] retain];
+		NSMutableCharacterSet *mutableCharacterSet = [[NSCharacterSet newLineCharacterSetHTML] mutableCopy];
+		[mutableCharacterSet addCharactersInString:@" \t"];
+		
+		_characterSet = [mutableCharacterSet copy];
 	}
 	);
 	
@@ -57,11 +56,10 @@
 	static dispatch_once_t onceToken;
 	
 	dispatch_once(&onceToken, ^{
-		_characterSet = [[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@"< \t\n\r%C%C%C%C",
-																			 (unichar)0x0085,
-																			 (unichar)0x000C,
-																			 (unichar)0x2028,
-																			 (unichar)0x2029]] retain];
+		NSMutableCharacterSet *mutableCharacterSet = [[NSCharacterSet newLineCharacterSetHTML] mutableCopy];
+		[mutableCharacterSet addCharactersInString:@"< \t"];
+		
+		_characterSet = [mutableCharacterSet copy];
 	}
 	);
 	
