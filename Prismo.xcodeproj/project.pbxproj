@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		3DA167F118253CF400CB0F95 /* NSCharacterSet+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */; };
+		3DA167FA1825442D00CB0F95 /* Yuba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA167F71825435800CB0F95 /* Yuba.framework */; };
+		3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA167F71825435800CB0F95 /* Yuba.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -36,8 +38,6 @@
 		A525D3961403866B00BCC471 /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A525D3951403866B00BCC471 /* OAuthConsumer.framework */; };
 		A525D3971403868100BCC471 /* OAuthConsumer.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A525D3951403866B00BCC471 /* OAuthConsumer.framework */; };
 		A53A293C1555894300334AC7 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A293B1555894300334AC7 /* Database.m */; };
-		A53A294115558A9200334AC7 /* Yuba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53A294015558A9100334AC7 /* Yuba.framework */; };
-		A53A294215558AA100334AC7 /* Yuba.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A53A294015558A9100334AC7 /* Yuba.framework */; };
 		A53B06AA1393D87F0063036D /* PSTopsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06A91393D87F0063036D /* PSTopsController.m */; };
 		A53B06AD1393D9F70063036D /* PSTop.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B06AC1393D9F70063036D /* PSTop.m */; };
 		A53B06B21393E8AF0063036D /* Database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A53B06B11393E8AF0063036D /* Database.sqlite */; };
@@ -430,6 +430,23 @@
 		A5FD7A8E1130326700B8244F /* Reviews.png in Resources */ = {isa = PBXBuildFile; fileRef = A5FD7A8C1130326700B8244F /* Reviews.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3DA167F61825435800CB0F95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DA167F21825435700CB0F95 /* Yuba.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = Yuba;
+		};
+		3DA167F81825442600CB0F95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DA167F21825435700CB0F95 /* Yuba.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Yuba;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		A57E40190FEAA69100AEC5BE /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -437,10 +454,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3DA167FB1825443B00CB0F95 /* Yuba.framework in Copy Frameworks */,
 				A584560C136C619F00415CD4 /* Sparkle.framework in Copy Frameworks */,
 				A525D3971403868100BCC471 /* OAuthConsumer.framework in Copy Frameworks */,
 				A58998F414E7F07400E55B81 /* Growl.framework in Copy Frameworks */,
-				A53A294215558AA100334AC7 /* Yuba.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +475,7 @@
 		32CA4F630368D1EE00C91783 /* Prismo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prismo_Prefix.pch; sourceTree = "<group>"; };
 		3DA167EF18253CF400CB0F95 /* NSCharacterSet+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+HTML.h"; path = "Classes/Utilites/NSCharacterSet+HTML.h"; sourceTree = "<group>"; };
 		3DA167F018253CF400CB0F95 /* NSCharacterSet+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTML.m"; path = "Classes/Utilites/NSCharacterSet+HTML.m"; sourceTree = "<group>"; };
+		3DA167F21825435700CB0F95 /* Yuba.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Yuba.xcodeproj; path = External/Yuba/Yuba.xcodeproj; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Prismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5070121141951B1000B5103 /* HeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeaderBackground.png; path = Resources/Images/HeaderBackground.png; sourceTree = "<group>"; };
@@ -499,7 +517,6 @@
 		A525D3951403866B00BCC471 /* OAuthConsumer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthConsumer.framework; path = Frameworks/OAuthConsumer.framework; sourceTree = "<group>"; };
 		A53A293A1555894300334AC7 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		A53A293B1555894300334AC7 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
-		A53A294015558A9100334AC7 /* Yuba.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yuba.framework; path = Frameworks/Yuba.framework; sourceTree = "<group>"; };
 		A53B06A81393D87F0063036D /* PSTopsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTopsController.h; sourceTree = "<group>"; };
 		A53B06A91393D87F0063036D /* PSTopsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTopsController.m; sourceTree = "<group>"; };
 		A53B06AB1393D9F70063036D /* PSTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTop.h; sourceTree = "<group>"; };
@@ -970,7 +987,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A53A294115558A9200334AC7 /* Yuba.framework in Frameworks */,
+				3DA167FA1825442D00CB0F95 /* Yuba.framework in Frameworks */,
 				A58998F314E7F01700E55B81 /* Growl.framework in Frameworks */,
 				A525D3961403866B00BCC471 /* OAuthConsumer.framework in Frameworks */,
 				A5A41F4E13A1F0AF003A470B /* QuartzCore.framework in Frameworks */,
@@ -1021,6 +1038,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DA167F21825435700CB0F95 /* Yuba.xcodeproj */,
 				A51898871242381E003C5912 /* SystemConfiguration.framework */,
 				A5A41F4D13A1F0AF003A470B /* QuartzCore.framework */,
 				A5E621680FDFF02500624252 /* WebKit.framework */,
@@ -1031,7 +1049,6 @@
 				A525D3951403866B00BCC471 /* OAuthConsumer.framework */,
 				A58998F214E7F01700E55B81 /* Growl.framework */,
 				A584560A136C619400415CD4 /* Sparkle.framework */,
-				A53A294015558A9100334AC7 /* Yuba.framework */,
 				A5CE1FDF111702AE006B34B1 /* libsqlite3.dylib */,
 				A5129C7613503D86006DD9C4 /* libicucore.dylib */,
 				A59C8E6714A9F19700237341 /* libz.dylib */,
@@ -1090,6 +1107,14 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DA167F31825435700CB0F95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DA167F71825435800CB0F95 /* Yuba.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A510CE85166E8F4A00E602D6 /* JSON */ = {
@@ -1746,6 +1771,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3DA167F91825442600CB0F95 /* PBXTargetDependency */,
 			);
 			name = Prismo;
 			productInstallPath = "$(HOME)/Applications";
@@ -1781,12 +1807,28 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* AppStoreSales */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3DA167F31825435700CB0F95 /* Products */;
+					ProjectRef = 3DA167F21825435700CB0F95 /* Yuba.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Prismo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3DA167F71825435800CB0F95 /* Yuba.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Yuba.framework;
+			remoteRef = 3DA167F61825435800CB0F95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -2212,6 +2254,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DA167F91825442600CB0F95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yuba;
+			targetProxy = 3DA167F81825442600CB0F95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {

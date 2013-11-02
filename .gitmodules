@@ -16,3 +16,6 @@
 [submodule "External/SBJson"]
 	path = External/SBJson
 	url = https://github.com/stig/json-framework.git
+[submodule "External/Yuba"]
+	path = External/Yuba
+	url = https://github.com/janx2/Yuba.git
