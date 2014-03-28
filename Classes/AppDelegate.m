@@ -210,7 +210,7 @@
             [self performSelectorOnMainThread:@selector(refreshMenu) withObject:nil waitUntilDone:YES];
             
             if (count == 1) {
-                [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"You have new review" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];			
+                [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:@"You have a new review" notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
             } else {
                 [GrowlApplicationBridge notifyWithTitle:@"Reviews" description:[NSString stringWithFormat:@"You have %ld new reviews", count] notificationName:@"New event" iconData:nil priority:0 isSticky:NO clickContext:nil];
             }

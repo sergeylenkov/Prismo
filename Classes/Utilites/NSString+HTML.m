@@ -30,6 +30,8 @@
 #import "NSString+HTML.h"
 #import "GTMNSString+HTML.h"
 
+#import "NSCharacterSet+HTML.h"
+
 @implementation NSString (HTML)
 
 #pragma mark -
@@ -42,9 +44,9 @@
 - (NSString *)stringByConvertingHTMLToPlainText {
 	
 	// Character sets
-	NSCharacterSet *stopCharacters = [NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@"< \t\n\r%C%C%C%C", 0x0085, 0x000C, 0x2028, 0x2029]];
-	NSCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@" \t\n\r%C%C%C%C", 0x0085, 0x000C, 0x2028, 0x2029]];
-	NSCharacterSet *tagNameCharacters = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"]; /**/
+	NSCharacterSet *stopCharacters = [NSCharacterSet stopCharacterSetHTML];
+	NSCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet newLineAndWhitespaceCharacterSetHTML];
+	NSCharacterSet *tagNameCharacters = [NSCharacterSet tagNameCharacterSetHTML]; /**/
 	
 	// Scan and find all tags
 	NSMutableString *result = [[NSMutableString alloc] initWithCapacity:self.length];
@@ -150,8 +152,7 @@
 	[scanner setCharactersToBeSkipped:nil];
 	NSMutableString *result = [[NSMutableString alloc] init];
 	NSString *temp;
-	NSCharacterSet *newLineCharacters = [NSCharacterSet characterSetWithCharactersInString:
-										 [NSString stringWithFormat:@"\n\r%C%C%C%C", 0x0085, 0x000C, 0x2028, 0x2029]];
+	NSCharacterSet *newLineCharacters = [NSCharacterSet newLineCharacterSetHTML];
 	// Scan
 	do {
 		
@@ -191,19 +192,12 @@
 // Remove newlines and white space from strong
 - (NSString *)stringByRemovingNewLinesAndWhitespace {
 	
-	// Strange New lines:
-	//	Next Line, U+0085
-	//	Form Feed, U+000C
-	//	Line Separator, U+2028
-	//	Paragraph Separator, U+2029
-	
 	// Scanner
 	NSScanner *scanner = [[NSScanner alloc] initWithString:self];
 	[scanner setCharactersToBeSkipped:nil];
 	NSMutableString *result = [[NSMutableString alloc] init];
 	NSString *temp;
-	NSCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet characterSetWithCharactersInString:
-													  [NSString stringWithFormat:@" \t\n\r%C%C%C%C", 0x0085, 0x000C, 0x2028, 0x2029]];
+	NSCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet newLineAndWhitespaceCharacterSetHTML];
 	// Scan
 	while (![scanner isAtEnd]) {
 		

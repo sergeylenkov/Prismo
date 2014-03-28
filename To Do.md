@@ -1,0 +1,2 @@
+- Map country popup is missing the sales count (example: US)
+- Fix deprecations in PTKeychain

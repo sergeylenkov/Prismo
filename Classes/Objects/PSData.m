@@ -61,7 +61,7 @@ static PSData *sharedInstance = nil;
         _euroZoneCodes = @"'AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'";
         _americasCodes = @"'AI', 'AG', 'AR', 'BS', 'BB', 'BZ', 'BM', 'BO', 'BR', 'IO', 'KY', 'CL', 'CO', 'CR', 'DM', 'DO', 'EC', 'SV', 'GD', 'GT', 'GY', 'HN', 'JM', 'MS', 'NI', 'PA', 'PY', 'PE', 'KN', 'LC', 'VC', 'SR', 'TT', 'TC', 'US', 'UY', 'VE'";
         
-        _graphTypes = [[NSArray arrayWithObjects:@"Total", @"Downloads", @"Sales", @"Updates", @"Revenue", nil] retain];
+        _graphTypes = [[NSMutableArray arrayWithObjects:@"Total", @"Downloads", @"Sales", @"Updates", @"Revenue", nil] retain];
         
         defaults = [NSUserDefaults standardUserDefaults];
     }
