@@ -1,7 +1,8 @@
 Prismo — must have application for all iOS developers. Prismo help tracking sales of your applications and get reviews, ratings and ranks of applications from App Store.
 
-BUILDING PRISMO
--------------------
+![Prismo](Screenshot.jpg)
+
+### BUILDING PRISMO
 
 Prismo uses some external frameworks:
 
